@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<?php
-session_start();
-if($_SESSION['username']==NULL)
-{
-  header("location:login.php");
-}
-else
-{
-?>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -63,7 +54,7 @@ else
       <li>
         <a href="EventPlanner_calender.php">
           <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <!-- <small class="badge float-right badge-light"></small> -->
+          <small class="badge float-right badge-light">New</small>
         </a>
       </li>
 
@@ -86,14 +77,14 @@ else
       </li>
 
       <li>
-        <!-- <a href="EventPlanner-Staff.php"> -->
-          <!-- <i class="zmdi zmdi-male-female"></i> <span>Staff</span> -->
+        <a href="EventPlanner-Staff.php">
+          <i class="zmdi zmdi-male-female"></i> <span>Staff</span>
         </a>
       </li>
 
       <li>
-        <!-- <a href="EventPlanner-customers.php"> -->
-          <!-- <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span> -->
+        <a href="EventPlanner-customers.php">
+          <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span>
         </a>
       </li>
 
@@ -114,8 +105,8 @@ else
         </a>
       </li>
       <li>
-        <!-- <a href="Attendance.php"> -->
-          <!-- <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span> -->
+        <a href="Attendance.php">
+          <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span>
         </a>
       </li>
 
@@ -137,8 +128,8 @@ else
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
-         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
+        <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
       </form>
     </li>
   </ul>
@@ -146,36 +137,36 @@ else
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <!-- <i class="fa fa-envelope-open-o"></i></a> -->
+      <i class="fa fa-envelope-open-o"></i></a>
     </li>
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <!-- <i class="fa fa-bell-o"></i></a> -->
+      <i class="fa fa-bell-o"></i></a>
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <!-- <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span> -->
+        <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span>
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
             <div class="media-body">
-            <!-- <h6 class="mt-2 user-title">Rabia Javed</h6> -->
-            <!-- <p class="user-subtitle">Rabia@gmail.com</p> -->
+            <h6 class="mt-2 user-title">Rabia Javed</h6>
+            <p class="user-subtitle">Rabia@gmail.com</p>
             </div>
            </div>
           </a>
         </li>
         <li class="dropdown-divider"></li>
-        <!-- <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li> -->
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
         <li class="dropdown-divider"></li>
-        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
        
         <li class="dropdown-divider"></li>
-        <!-- <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> -->
+        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
       </ul>
     </li>
   </ul>
@@ -194,19 +185,10 @@ else
             <div class="card-img-block">
                 <img class="img-fluid" src="assets/images/g-9.jpg" alt="Card image cap">
             </div>
-            <?php
-  include('config.php');
-  $query="SELECT * FROM users WHERE username ='{$_SESSION['username']}'";
-  $result=mysqli_query($conn,$query);
-  while($rows=mysqli_fetch_assoc($result))
-  {
-
-?>
             <div class="card-body pt-5">
-                <!-- <img src="assets/images/profile.1.jpg" alt="profile-image" class="profile"> -->
-                <h5 class="card-title"><?php echo $rows['fullname'];?></h5>
-                <p class="card-text"><?php echo $rows['companyname'];?></p>
-                <p class="card-text"><?php echo $rows['address'];}?></p>
+                <img src="assets/images/profile.1.jpg" alt="profile-image" class="profile">
+                <h5 class="card-title">Rabia Javed</h5>
+                <p class="card-text">I am a professional event planner with 10 years of experience.</p>
                 <div class="icon-block">
                   <a href="https://www.facebook.com/dreamevents84/"><i class="fa fa-facebook bg-facebook text-white"></i></a>
 				  <a href="https://mobile.twitter.com/DreamEvents657"> <i class="fa fa-twitter bg-twitter text-white"></i></a>
@@ -223,29 +205,29 @@ else
            <div class="card">
             <div class="card-body">
             <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
-                <!-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class="icon-user"></i> <span class="hidden-xs">Profile</span></a>
-                </li> -->
-                <!-- <li class="nav-item"> -->
-                    <!-- <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Messages</span></a>
                 </li>
-                <li class="nav-item"> -->
+                <li class="nav-item">
+                    <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Messages</span></a>
+                </li>
+                <li class="nav-item">
                     <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Edit</span></a>
                 </li>
             </ul>
             <div class="tab-content p-3">
                 <div class="tab-pane active" id="profile">
-                    <h5 class="mb-3"></h5>
+                    <h5 class="mb-3">User Profile</h5>
                     <div class="row">
                         <div class="col-md-6">
-                            <!-- <h6>About</h6>
+                            <h6>About</h6>
                             <p>
                                 Event Planner, Event Management
                             </p>
                             <h6>Hobbies</h6>
                             <p>
                                 music, sking, management and hiking. I love the great outdoors.
-                            </p> -->
+                            </p>
                        
                         
 
@@ -265,7 +247,7 @@ else
 
                     <!--/row-->
                 </div>
-                <!-- <div class="tab-pane" id="messages">
+                <div class="tab-pane" id="messages">
                     <div class="alert alert-info alert-dismissible" role="alert">
 				   <button type="button" class="close" data-dismiss="alert">&times;</button>
 				    <div class="alert-icon">
@@ -326,103 +308,95 @@ else
                         </tbody> 
                     </table>
                   </div>
-                </div> -->
-                <?php
-  include('config.php');
-  $query="SELECT * FROM users WHERE username ='{$_SESSION['username']}'";
-  $result=mysqli_query($conn,$query);
-  while($rows=mysqli_fetch_assoc($result))
-  {
-
-?>
+                </div>
                 <div class="tab-pane" id="edit">
-                <form action="Eventplanner_profile_action.php" method="POST" onsubmit="return validation()">
+                    <form>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Mark">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Jhonsan">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="email" value="mark@example.com">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="file">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Company Name</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Eventor">
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Phone no</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="0363778227">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="Street 9, westrige 3." placeholder="Street 9">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-6">
+                                <input class="form-control" type="text" value="Islamabad" placeholder="City">
+                            </div>
+                            <div class="col-lg-3">
+                                <input class="form-control" type="text" value="Pakistan" placeholder="State">
+                            </div>
+                        </div>
+                       
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="text" value="jhonsanmark">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="11111122333">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                            <div class="col-lg-9">
+                                <input class="form-control" type="password" value="11111122333">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label form-control-label"></label>
+                            <div class="col-lg-9">
+                                <input type="reset" class="btn btn-secondary" value="Cancel">
+                                <input type="button" class="btn btn-primary" value="Save Changes">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </div>
+      </div>
+        
+    </div>
 
-                    <div class="form-group">
-			  <label class="col-lg-3 col-form-label form-control-label">Full Name</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text"  name="fullname" class="form-control input-shadow" placeholder="Enter Your Name" value="<?php echo $rows['fullname'];?>">
-				  <div class="form-control-position">
-					  <i class="icon-pencil"></i>
-				  </div>
-			   </div>
-			  </div>
-        <div class="form-group">
-			  <label class="col-lg-3 col-form-label form-control-label">User Name</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="username" name="username" class="form-control input-shadow" value="<?php echo $rows['username'];?>" >
-				   <span id="usernamee" class="text-warning font-weight-bold"> </span>
-				  <div class="form-control-position">
-					  <i class="icon-user"></i>
-				  </div>
-			   </div>
-			  </div>
-			  <div class="form-group">
-			  <label class="col-lg-3 col-form-label form-control-label"> Bussiness Email</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="be" name="bussinessemail" class="form-control input-shadow" value="<?php echo $rows['bussinessemail'];?>" >
-				   <span id="bussinessemaill" class="text-warning font-weight-bold"> </span>
-				  <div class="form-control-position">
-					  <i class="icon-envelope-open"></i>
-				  </div>
-			   </div>
-			  </div>
-			   <div class="form-group">
-			  <label class="col-lg-3 col-form-label form-control-label">Phone Number</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="phoneno" name="phoneno" class="form-control input-shadow" value="<?php echo $rows['phoneno'];?>" >
-				   <span id="phonenoo" class="text-warning font-weight-bold"> </span>
-				  <div class="form-control-position">
-					  <i class="icon-phone"></i>
-				  </div>
-			   </div>
-			  </div>
-			   <div class="form-group">
-			  <label class="col-lg-3 col-form-label form-control-label"> Company Name</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="companyname" name="companyname" class="form-control input-shadow" value="<?php echo $rows['companyname'];?>" >
-				   <span id="companynamee" class="text-warning font-weight-bold"> </span>
-				  <div class="form-control-position">
-					  <i class="icon-globe"></i>
-				  </div>
-			   </div>
-			  </div>
-			   <div class="form-group">
-			  <label class="col-lg-3 col-form-label form-control-label"> Address</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="address" name="address" class="form-control input-shadow" value="<?php echo $rows['address'];}?>" >
-				   <span id="addresss" class="text-warning font-weight-bold"> </span>
-				  <div class="form-control-position">
-					  <i class=" icon-home"></i>
-				  </div>
-			   </div>
-			  </div>
-			  <div class="form-group">
-			   <label class="col-lg-3 col-form-label form-control-label">Password</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="pass" name="password" class="form-control input-shadow" placeholder="Enter Password" >
-				   <span id="passwordd" class="text-warning font-weight-bold"> </span>
-				  <div class="form-control-position">
-					  <i class="icon-lock"></i>
-				  </div>
-			   </div>
-			  </div>
-			   <div class="form-group">
-			  <label class="col-lg-3 col-form-label form-control-label"> Confirm Password</label>
-			   <div class="position-relative has-icon-right">
-				  <input type="text" id="cp" name="confirmedpassword" class="form-control input-shadow" placeholder="Enter Your confirmed password">
-				   <span id="confirmedpasswordd" class="text-warning font-weight-bold"> </span>
-				  <div class="form-control-position">
-					  <i class="icon-lock"></i>
-				  </div>
-			   </div>
-			  </div>
-        <input type="submit" name="submit" value="Save Changes" class="btn-btn-primary">
-			 
-			
-			
-			 </form>
-   
 	<!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
 		<!--end overlay-->
@@ -519,10 +493,4 @@ else
         font-size: 1.2em;
         color: rgba(255, 255, 255, 0.65);
 }
-.profile{
-  margin-left:130px;
-}
 </style>
-<?php
-}
-?>

@@ -5,9 +5,7 @@ $dbUsername = "root";
 $dbPassword = "";
 $dbName = "dream_events";
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-
-echo 'Connestion Successful';
+$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName  );
 
 /*$conn = new mysqli ($DBserver, $dbuser, $dbpassword, $dbname);
 

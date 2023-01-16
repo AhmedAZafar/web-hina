@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+?>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -6,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Event planner-Events</title>
+  <title>Event planner-services</title>
   <!-- loader-->
   <link href="assets/css/pace.min.css" rel="stylesheet"/>
   <script src="assets/js/pace.min.js"></script>
@@ -24,7 +28,7 @@
   <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="assets/css/app-style.css" rel="stylesheet"/>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
   
 </head>
 
@@ -74,14 +78,14 @@
       </li>
 
       <li>
-        <a href="EventPlanner-Staff.php">
-          <i class="zmdi zmdi-male-female"></i> <span>Staff</span>
+        <!-- <a href="EventPlanner-Staff.php"> -->
+          <!-- <i class="zmdi zmdi-male-female"></i> <span>Staff</span> -->
         </a>
       </li>
 
       <li>
-        <a href="EventPlanner-customers.php">
-          <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span>
+        <!-- <a href="EventPlanner-customers.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span> -->
         </a>
       </li>
 
@@ -102,8 +106,8 @@
         </a>
       </li>
       <li>
-        <a href="Attendance.php">
-          <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span>
+        <!-- <a href="Attendance.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span> -->
         </a>
       </li>
 
@@ -125,8 +129,8 @@
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
+         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
       </form>
     </li>
   </ul>
@@ -134,35 +138,35 @@
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
+      <!-- <i class="fa fa-envelope-open-o"></i></a> -->
     </li>
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Rabia Javed</h6>
-            <p class="user-subtitle">Rabia@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Rabia Javed</h6> -->
+            <!-- <p class="user-subtitle">Rabia@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <!-- <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        <!-- <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> -->
       </ul>
     </li>
   </ul>
@@ -172,75 +176,101 @@
 
 
 <div class="clearfix"></div>
-	
+  
   <div class="content-wrapper">
     <div class="container-fluid">
      
       <div class="row">
    <div class="col-12 col-lg-12">
-    <div class="container" ng-app="app" ng-controller="ListController">
+
+       <div class="container" ng-app="app" ng-controller="ListController">
      
 
-  
      <div class="content">
-      <center>
-        <div class="card-header" style="font-size: 2rem;">Events
-   
-     
-       <a href="EventPlanner-CreateEvent.php"> <button class="b" style="font-size: 1rem; border: none;border-radius: 5px; background-color: #f7b731;color: white; margin-left: 74%;">Create Event</button></a>
+  <center>
+       <div class="card-header" style="font-size: 2rem;">Book Services
       
      </div>
 
-      <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...." />
+     <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  />
+     <?php
 
+
+
+
+include('config.php');
+
+
+$query="SELECT * FROM services";
+$result=mysqli_query($conn,$query);
+
+?>
          <div class="table-responsive">
-                 <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
+                <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
                   <thead>
                    <tr>
                      <th>ID</th>
-                     <th>Event</th>
-                     <th>Services</th>
-                     <th>Date</th>
-                     <th>Time</th>
-                    <th>Price</th>
-
+                     <th>Name</th>
+                     <th>Category</th>
+                     <th>Company</th>
+                     <th>Vendor</th>
+                     <th>Price</th>
+                   
                      <th>Actions</th>
                    </tr>
                  </div>
-                   </thead>
 
-                   <tr ng-repeat="search in Searches | filter: allKeywords">
-                <td>{{search.id}}</td>
-                <td ng-bind="search.event"></td>
-                <td>1.Decoration<br> 2.Catering <br>3.Music </td>
-                <td ng-bind="search.date"></td>
-                <td>{{search.time}}</td>
-                <td ng-bind="search.price"></td>
-                <td><a href="eventplanner-edit-event.php" class="button-add" style="margin: 2px;">Edit</a> <a href="file:///F:/Eventplanner/EventPlanner-services-images.html" class="button-add">Delete</a>
-                  <a href="EventPlanner-services-images.php" class="button-add">Images</a>
+                 <?php
+while($rows=mysqli_fetch_assoc($result))
+{
+?>
+<tbody class="Services">
+
+  <tr>
+    <td><?php echo $rows['id'];?></td>
+    <td><?php echo $rows['name'];?></td>
+    <td><?php echo $rows['category'];?></td>
+    <td><?php echo $rows['company'];?></td>
+    <td><?php echo $rows['vendor'];?></td>
+    <td><?php echo $rows['price'];?></td>
+    <td>
+      
+      <?php
+     echo '<p> <a href="EventPlanner-services-book.php?id='.$rows['id'].'" class=delete>"Book"</a></p>';}?>
+        
+</td>
+</tr>
+</tbody>
+
+
+                 
+</thead>
+                
                 
             </td>
           </tr>
 </table>
-                              
+
+               
      
      <script>
     var search = [
-            { id: '090800', event: 'Barat',date: '2/3/2022',time:'11:00am-12:00pm',price:'80000' },
-             { id: '037373', event: 'Dolki',date: '2/8/2022',time:'11:00am-12:00pm',price:'40000' },
-              { id: '748488', event: 'Barat',date: '2/3/2022',time:'11:00am-12:00pm',price:'40000' },
-               { id: '838383', event: 'Mayoon',date: '7/3/2022',time:'11:00am-12:00pm',price:'50000' },
-                { id: '839399', event: 'Barat',date: '2/3/2022',time:'11:00am-12:00pm',price:'40000' },
-                 { id: '883993', event: 'Barat',date: '2/9/2022',time:'11:00am-12:00pm',price:'40000' },
-                  { id: '899900', event: 'Barat',date: '2/3/2022',time:'11:00am-12:00pm',price:'40000' },
-                     { id: '090800', event: 'Barat',date: '2/3/2022',time:'11:00am-12:00pm',price:'80000' },
-             { id: '037373', event: 'Dolki',date: '2/8/2022',time:'11:00am-12:00pm',price:'40000' },
-              { id: '748488', event: 'Barat',date: '2/3/2022',time:'11:00am-12:00pm',price:'40000' },
-               { id: '838383', event: 'Mayoon',date: '7/3/2022',time:'11:00am-12:00pm',price:'50000' },
-                { id: '839399', event: 'Barat',date: '2/3/2022',time:'11:00am-12:00pm',price:'40000' },
-                 { id: '883993', event: 'Barat',date: '2/9/2022',time:'11:00am-12:00pm',price:'40000' },
-                  { id: '899900', event: 'Barat',date: '2/3/2022',time:'11:00am-12:00pm',price:'40000' },
-            
+            { serviceid: '89000', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
+            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
+            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'moral',price:'40000' },
+            { serviceid: '79880', name: 'Lightings', category : 'Decoration' ,Availability: '11:00am-05:00pm',Company:'envento',price:'40000' },
+
+            { serviceid: '47680', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
+
+            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'glow',price:'40000' },
+
+            { serviceid: '79880', name: 'Music', category : 'Sound System' ,Availability: '11:00am-12:00pm',Company:'envento',price:'58990' },
+
+            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-02:00pm',Company:'dream',price:'40000' },
+
+            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
+            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
+             
             
 
             
@@ -250,19 +280,22 @@
               ["$scope", function ($scope) { $scope.Searches = search; }]); 
 
 </script>
-      </div></center>
-    </div>
-  </div>
+ 
+
+</div>
+</center>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 
-	  
-	  <!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
+    
+    <!--start overlay-->
+      <div class="overlay toggle-menu"></div>
+    <!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
@@ -271,10 +304,9 @@
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
-	
-	<!--Start footer-->
-	
-<footer class="footer" style="top: 260%; ">
+  
+  <!--Start footer-->
+  <footer class="footer" style="top: 160%; ">
       <div class="container">
         <div class="text-center">
           Copyright © 2022 Dream Events, Pakistan
@@ -289,9 +321,9 @@
 
       </div>
     </footer>
-	<!--End footer-->
-	
-	<!--start color switcher-->
+  <!--End footer-->
+  
+  <!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
@@ -320,7 +352,7 @@
         <li id="theme10"></li>
         <li id="theme11"></li>
         <li id="theme12"></li>
-		<li id="theme13"></li>
+    <li id="theme13"></li>
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
@@ -336,7 +368,7 @@
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
-	
+  
   <!-- simplebar js -->
   <script src="assets/plugins/simplebar/js/simplebar.js"></script>
   <!-- sidebar-menu js -->
@@ -344,10 +376,9 @@
   
   <!-- Custom scripts -->
   <script src="assets/js/app-script.js"></script>
-	
+  
 </body>
 </html>
-
 
 
 <style>
@@ -359,4 +390,39 @@
         font-size: 1.2em;
         color: rgba(255, 255, 255, 0.65);
 }
+.delete{
+  background-color:white;
+  border-radius: 12px;
+  color:black;
+  padding:7px;
+  border-radius:2px;
+  margin-right:10px;
+  font-family:sans-serif;
+    margin-top: 13px;
+    min-height:30px; 
+    min-width: 120px;
+    border-radius: 8px;
+    text-decoration: none;
+
+}
+.delete:hover {
+      background-color:black;
+      color:white;
+      border-radius: 8px;
+      transition: 0.7s;
+  }
+  .accept{
+    background-color:white;
+  border-radius: 12px;
+  color:black;
+  padding:7px;
+  border-radius:2px;
+  margin-right:10px;
+  font-family:sans-serif;
+    margin-top: 13px;
+    min-height:30px; 
+    min-width: 120px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
 </style>

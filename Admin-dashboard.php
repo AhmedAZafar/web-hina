@@ -87,8 +87,8 @@
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
+         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
       </form>
     </li>
   </ul>
@@ -97,30 +97,30 @@
     
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Rabia Javed</h6>
-            <p class="user-subtitle">Rabia@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Rabia Javed</h6> -->
+            <!-- <p class="user-subtitle">Rabia@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
         
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        <!-- <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> -->
       </ul>
     </li>
   </ul>
@@ -140,38 +140,74 @@
         <div class="row row-group m-0">
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                  <h5 class="text-white mb-0">9526 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                  <h5 class="text-white mb-0">
+                     <?php
+                  include('config.php');
+                  $query="SELECT * FROM users WHERE type='Customer'";
+                  $query_run=mysqli_query($conn,$query);
+                  $row=mysqli_num_rows($query_run);
+                  echo'<h7>'.$row.'</h7>';
+
+                    ?>
+                    <span class="float-right"><i class="fa fa-user"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:55%"></div>
+                       <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Orders <span class="float-right"></span></p>
+                  <p class="mb-0 text-white small-font">Customers <span class="float-right"></span></p>
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                  <h5 class="text-white mb-0">8323 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                  <h5 class="text-white mb-0">
+                  <?php
+                  include('config.php');
+                  $query="SELECT * FROM users WHERE type='Event Planner'";
+                  $query_run=mysqli_query($conn,$query);
+                  $row=mysqli_num_rows($query_run);
+                  echo'<h7>'.$row.'</h7>';
+
+                    ?>
+                  
+                  <span class="float-right"><i class="fa fa-user"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:55%"></div>
+                       <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Revenue <span class="float-right"></span></p>
+                  <p class="mb-0 text-white small-font">Event Planners <span class="float-right"></span></p>
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                  <h5 class="text-white mb-0">6200 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                  <h5 class="text-white mb-0">
+                  <?php
+                  include('config.php');
+                  $query="SELECT * FROM users WHERE type='Vendor'";
+                  $query_run=mysqli_query($conn,$query);
+                  $row=mysqli_num_rows($query_run);
+                  echo'<h7>'.$row.'</h7>';
+                    ?>
+                  <span class="float-right"><i class="fa fa-user"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:55%"></div>
+                       <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Customrs<span class="float-right"></span></p>
+                  <p class="mb-0 text-white small-font">Service Providers<span class="float-right"></span></p>
                 </div>
             </div>
             <div class="col-12 col-lg-6 col-xl-3 border-light">
                 <div class="card-body">
-                  <h5 class="text-white mb-0">5630 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                  <h5 class="text-white mb-0">
+                    <?php
+                  include('config.php');
+                  $query="SELECT * FROM users";
+                  $query_run=mysqli_query($conn,$query);
+                  $row=mysqli_num_rows($query_run);
+                  echo'<h7>'.$row.'</h7>';
+
+                    ?>
+                  <span class="float-right"><i class="fa fa-user"></i></span></h5>
                     <div class="progress my-3" style="height:3px;">
-                       <div class="progress-bar" style="width:55%"></div>
+                       <div class="progress-bar" style="width:100%"></div>
                     </div>
-                  <p class="mb-0 text-white small-font">Total Events <span class="float-right"> </span></p>
+                  <p class="mb-0 text-white small-font">Total Users<span class="float-right"> </span></p>
                 </div>
             </div>
         </div>
@@ -181,22 +217,91 @@
   <div class="row">
      <div class="col-12 col-lg-8 col-xl-8">
       <div class="card">
-     <div class="card-header">Site Traffic
+     <div class="card-header">Types of Website Users
        <div class="card-action">
        
        </div>
      </div>
      <div class="card-body">
-        <ul class="list-inline">
+        <!-- <ul class="list-inline">
         <li class="list-inline-item"><i class="fa fa-circle mr-2 text-white"></i>New Customers</li>
         <li class="list-inline-item"><i class="fa fa-circle mr-2 text-light"></i>Old Customers</li>
-      </ul>
+      </ul> -->
       <div class="chart-container-1">
-        <canvas id="chart1"></canvas>
+        <!-- <canvas id="chart1"></canvas> -->
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['gender', 'Male'],
+          <?php
+$dbServername = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbName = "dream_events";
+$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+$query="SELECT gender,count('Male') as Male FROM gender GROUP BY gender";
+$result=mysqli_query($conn,$query);
+while($row=mysqli_fetch_array($result))
+{
+  echo "['".$row["gender"]."',".$row["Male"]."],";
+}
+?>        
+      
+        ]);
+
+        var options = {
+          curveType: 'function',
+          chartArea: {left:50,top:15,width:'80%',height:'80%'}, 
+          backgroundColor: 'transparent',
+          colors: ["#FFFFFF"],
+          hAxis:{
+          title: "Gender",
+          titleTextStyle: {
+          fontName: 'Times-Roman',
+          fontSize: 16,
+          bold: true,
+          color: "#FFFFFF"
+         },
+         textStyle: {
+         fontName: 'Times-Roman',
+         fontSize: 16,
+         bold: true,
+         color: "#FFFFFF"
+    },
+  },
+  vAxis:{
+          title: "Numbers",
+          titleTextStyle: {
+          fontName: 'Times-Roman',
+          fontSize: 16,
+          bold: true,
+          color: "#FFFFFF"
+         },
+         textStyle: {
+         fontName: 'Times-Roman',
+         fontSize: 16,
+         bold: true,
+         color: "#FFFFFF"
+    },
+  },
+          legend: { position: 'none' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+     <div id="curve_chart" style="width: 750px; height: 270px"></div>
       </div>
      </div>
      
-     <div class="row m-0 row-group text-center border-top border-light-3">
+     <!-- <div class="row m-0 row-group text-center border-top border-light-3">
        <div class="col-12 col-lg-4">
          <div class="p-3">
            <h5 class="mb-0">45.87M</h5>
@@ -210,25 +315,77 @@
          </div>
        </div>
        
-     </div>
+     </div> -->
      
     </div>
    </div>
 
-     <div class="col-12 col-lg-4 col-xl-4">
+   <div class="col-12 col-lg-4 col-xl-4">
         <div class="card">
-           <div class="card-header">
+           <div class="card-header">Events In Trend
              <div class="card-action">
              
              </div>
            </div>
            <div class="card-body">
-         <div class="chart-container-2">
-               <canvas id="chart2"></canvas>
-        </div>
+		     <div class="chart-container-2">
+            <!-- <canvas id="chart2"></canvas> -->
+            <?php
+
+$dbServername = "localhost";
+$dbUsername = "root";
+$dbPassword = "";
+$dbName = "dream_events";
+
+$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName  );
+$query="SELECT category,count(*) as number FROM events GROUP BY category";
+$result=mysqli_query($conn,$query);
+?>
+
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Event', 'Number'],
+          <?php
+          while($row=mysqli_fetch_array($result))
+          {
+            echo "['".$row["category"]."',".$row["number"]."],";
+          }
+        ?>
+        ]);
+        var options = {
+          pieHole: 0.4,
+          chartArea: {left:2,top:2,width:'90%',height:'85%'}, 
+          backgroundColor: 'transparent',
+          colors: ["#000000","#505050","#696969","#808080",	"#A9A9A9"],
+          pieSliceBorderColor:'transparent',
+          legend : {
+             position : 'right',
+             textStyle: { color: "#FFFFFF",
+              fontName: 'Times-Roman',
+              fontSize: 14
+                        }
+                     
+          }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+  
+    <div id="donutchart" style="width: 380px; height: 200px;"></div>
+ 
+
+			  </div>
            </div>
            <div class="table-responsive">
-             <table class="table align-items-center">
+             <!-- <table class="table align-items-center">
                <tbody>
                  <tr>
                    <td><i class="fa fa-circle text-white mr-2"></i> Active Users</td>
@@ -251,8 +408,8 @@
                    
                  </tr>
                </tbody>
-             </table>
-           </div>
+             </table> -->
+           
          </div>
      </div>
   </div><!--End Row-->

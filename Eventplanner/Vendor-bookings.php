@@ -1,9 +1,12 @@
 
-<!DOCTYPE html>
-<?php
-session_start();
-
+<?php 
+include("includes/config.php");
 ?>
+
+
+
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -95,8 +98,8 @@ session_start();
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <!-- <input type="text" class="form-control" placeholder="Enter keywords">/ -->
-         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
+        <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
       </form>
     </li>
   </ul>
@@ -105,30 +108,30 @@ session_start();
     
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <!-- <i class="fa fa-bell-o"></i></a> -->
+      <i class="fa fa-bell-o"></i></a>
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <!-- <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span> -->
+        <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span>
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
             <div class="media-body">
-            <!-- <h6 class="mt-2 user-title">Hina Noor</h6> -->
-            <!-- <p class="user-subtitle">Hina@gmail.com</p> -->
+            <h6 class="mt-2 user-title">Hina Noor</h6>
+            <p class="user-subtitle">Hina@gmail.com</p>
             </div>
            </div>
           </a>
         </li>
        
         <li class="dropdown-divider"></li>
-        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
+        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
         <li class="dropdown-divider"></li>
-       <!-- <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a> -->
+       <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a>
       </ul>
     </li>
   </ul>
@@ -138,367 +141,95 @@ session_start();
 
 
 <div class="clearfix"></div>
-    
+	
   <div class="content-wrapper">
     <div class="container-fluid">
      
       <div class="row">
    <div class="col-12 col-lg-12">
-    <div class="container" ng-app="app" ng-controller="ListController">
-<center>
-        
-     <h2>All Bookings</h2>
+     <div class="container" ng-app="app" ng-controller="ListController">
+     
 
-<button type="button" class="collapsible">Latest Bookings</button>
-<div class="content">
-
-
+     <div class="content">
   <center>
-     <div class="card-header" style="font-size: 2rem;">Bookings
+       <div class="card-header" style="font-size: 2rem;">Bookings<br>
+       <?php
+      if (isset($_SESSION['add'])) 
+      {
+        echo $_SESSION['add'];
+        unset($_SESSION['add']);
+      }
+      if(isset($_SESSION['delete'])){
+        echo $_SESSION['delete'];
+        unset($_SESSION['delete']);
+        
+      }
+      if(isset($_SESSION['update'])){
+        echo $_SESSION['update'];
+        unset($_SESSION['update']);
+      }
+       if(isset($_SESSION['upload']))
+            {
+                echo $_SESSION['upload'];
+                unset($_SESSION['upload']);
+            }
+            if(isset($_SESSION['remove']))
+            {
+                echo $_SESSION['remove'];
+                unset($_SESSION['remove']);
+            }
+          
+
+            if(isset($_SESSION['failed-remove']))
+            {
+                echo $_SESSION['failed-remove'];
+                unset($_SESSION['failed-remove']);
+            }
+    ?>
       
      </div>
-        
-       
+      <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  />
 
-</center>
-
-<?php
-
-
-
-
-include('config.php');
-
-
-$query="SELECT * FROM services_booking WHERE vendor ='{$_SESSION['username']}' AND statu=0";
-$result=mysqli_query($conn,$query);
-
-?>
-        <div class="table-responsive" style="">
+         <div class="table-responsive">
                  <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
                   <thead>
                    <tr>
-                   <th>Name</th>
-                     <th>Category</th>
-                     <th>Price</th>
-                     <th>Timing</th>
-                     <th>Quanitity</th>
-                     <th>Date</th>
-                   
-                     <th>Actions</th>
-                   </tr>
-                  
-                  
-        
-            <!-- <tr ng-repeat="search in Searches | filter: allKeywords">
-                <td>{{search.customername}}</td>
-                <td ng-bind="search.eventname"></td>
-                <td>{{search.eventdate}}</td>
-                <td ng-bind="search.eventtime"></td>
-                <td>{{search.eventtype}}</td>
-                <td><a href="admin-add-product.php" class="button-add" style="margin: 2px;">Accept</a> <a href="file:///F:/Eventplanner/EventPlanner-services-images.html" class="button-add">Reject</a></td>
-                
-            </tr> -->
-            <?php
-while($rows=mysqli_fetch_assoc($result))
-{
-?>
-<tbody class="servicesdata">
+                    <th>ID</th>
+                     <th>Event Planner</th>
+                     <th>Service ID</th>
+                     <th>Service Name</th>
+                      <th>Category</th>
+                     <th>Booking Date</th>
+                      <th>Company</th>
+                       <th>Cost</th>
+                       <th>Status</th>
+                       
+                       
+                     
+                     
+                 </div>
+                   </thead>
 
-  <tr>
-    <td><?php echo $rows['name'];?></td>
-    <td><?php echo $rows['category'];?></td>
-    <td><?php echo $rows['price'];?></td>
-    <td><?php echo $rows['timing'];?></td>
-    <td><?php echo $rows['quantity'];?></td>
-    <td><?php echo $rows['date'];?></td>
-
-
-    <td>
-      <?php
-     
-        echo '<p><a href="vendor_booking_action.php?id='.$rows['id'].'&statu=1" class=delete>"Accept"</a>
-        <a href="vendor_booking_action.php?id='.$rows['id'].'&statu=2" class=delete>"Reject"</a></p>';}?>
-</td>
-</tr>
-</tbody>
-
-             </thead>
+                 <?php include("vendor-view-booking.php"); ?> 
 </table>
-
-               </div>
-
-        
-       
-       
-
-
-
-
-
-
-<!-- <script>
-    var search = [
-            { customername: 'Rabiaa', eventname: 'Dolki', eventdate : '2/7/2021' ,eventtime: '05:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Hina', eventname: 'Barat', eventdate : '6/3/2027' ,eventtime: '06:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Sundas', eventname: 'Reception', eventdate : '2/3/2022' ,eventtime: '07:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Hadia', eventname: 'Birthday Party', eventdate : '9/3/2022' ,eventtime: '11:00am-09:00pm',eventtype:'Birthday' },
-            { customername: 'Fiza', eventname: 'Bridal Shower', eventdate : '2/10/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Ghaza', eventname: 'Mayoon', eventdate : '2/3/2027' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Khalda', eventname: 'Mehndi', eventdate : '7/4/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Javed', eventname: 'Seminar', eventdate : '9/3/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Bussiness' },
-
-            
-    ];
-
-    var app = angular.module("app", []); app.controller("ListController",
-              ["$scope", function ($scope) { $scope.Searches = search; }]); 
-
-</script> -->
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<button type="button" class="collapsible">Accepted Bookings</button>
-<div class="content">
-  <center>
-     <div class="card-header" style="font-size: 2rem;">Accepted Bookings
-      
-     </div>
-        
-       <!-- <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  /> -->
-
-</center>
-
-     
-<?php
-
-
-
-
-include('config.php');
-
-
-$query="SELECT * FROM services_booking WHERE vendor ='{$_SESSION['username']}' AND statu=1";
-$result=mysqli_query($conn,$query);
-
-?>
-        <div class="table-responsive" style="">
-                 <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
-                  <thead>
-                   <tr>
-                   <th>Name</th>
-                     <th>Category</th>
-                     <th>Price</th>
-                     <th>Timing</th>
-                     <th>Quantity</th>
-                     <th>Date</th>
-                   
-                     <th>Status</th>
-                   </tr>
-                  
-                  
-        
-            <!-- <tr ng-repeat="search in Searches | filter: allKeywords">
-                <td>{{search.customername}}</td>
-                <td ng-bind="search.eventname"></td>
-                <td>{{search.eventdate}}</td>
-                <td ng-bind="search.eventtime"></td>
-                <td>{{search.eventtype}}</td>
-                <td><a href="admin-add-product.php" class="button-add" style="margin: 2px;">Accept</a> <a href="file:///F:/Eventplanner/EventPlanner-services-images.html" class="button-add">Reject</a></td>
-                
-            </tr> -->
-            <?php
-while($rows=mysqli_fetch_assoc($result))
-{
-?>
-<tbody class="Servicesdata">
-
-  <tr>
-    <td><?php echo $rows['name'];?></td>
-    <td><?php echo $rows['category'];?></td>
-    <td><?php echo $rows['price'];?></td>
-    <td><?php echo $rows['timing'];?></td>
-    <td><?php echo $rows['quantity'];?></td>
-    <td><?php echo $rows['date'];?></td>
-
-
-    <td>
-      <?php
-     
-        echo '<p><button class=accept>"Accepted"</button></p>';}?></a>
-</td>
-</tr>
-</tbody>
-
-             </thead>
-</table>
-
-               </div>
-
-
-
-<script>
-    var search = [
            
-            { customername: 'Raiuj', eventname: 'Dolki', eventdate : '2/3/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Rabi', eventname: 'Dolki', eventdate : '2/3/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-             { customername: 'Rabia', eventname: 'Dolki', eventdate : '2/7/2021' ,eventtime: '05:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Hina', eventname: 'Barat', eventdate : '6/3/2027' ,eventtime: '06:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Sundas', eventname: 'Reception', eventdate : '2/3/2022' ,eventtime: '07:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Hadia', eventname: 'Birthday Party', eventdate : '9/3/2022' ,eventtime: '11:00am-09:00pm',eventtype:'Birthday' },
-            { customername: 'Fiza', eventname: 'Bridal Shower', eventdate : '2/10/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Ghaza', eventname: 'Mayoon', eventdate : '2/3/2027' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Khalda', eventname: 'Mehndi', eventdate : '7/4/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Javed', eventname: 'Seminar', eventdate : '9/3/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Bussiness' },
-            
-    ];
-
-    var app = angular.module("app", []); app.controller("ListController",
-              ["$scope", function ($scope) { $scope.Searches = search; }]); 
-
-</script>
-
+     
+     
+ </div>
+ </center>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
-
-
-
-
-
-
-
-
-
-<button type="button" class="collapsible">Rejected Bookings</button>
-<div class="content">
-   <center>
-     <div class="card-header" style="font-size: 2rem;">Rejected Bookings
       
-     </div>
-        
-       
-</center>
-
-       
-<?php
-
-
-
-
-include('config.php');
-
-
-$query="SELECT * FROM services_booking WHERE vendor ='{$_SESSION['username']}' AND statu=2";
-$result=mysqli_query($conn,$query);
-
-?>
-        <div class="table-responsive" style="">
-                 <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
-                  <thead>
-                   <tr>
-                   <th>Name</th>
-                     <th>Category</th>
-                     <th>Price</th>
-                     <th>Timing</th>
-                     <th>Quantity</th>
-                     <th>Date</th>
-                   
-                     <th>Status</th>
-                   </tr>
-                  
-                  
-        
-            <!-- <tr ng-repeat="search in Searches | filter: allKeywords">
-                <td>{{search.customername}}</td>
-                <td ng-bind="search.eventname"></td>
-                <td>{{search.eventdate}}</td>
-                <td ng-bind="search.eventtime"></td>
-                <td>{{search.eventtype}}</td>
-                <td><a href="admin-add-product.php" class="button-add" style="margin: 2px;">Accept</a> <a href="file:///F:/Eventplanner/EventPlanner-services-images.html" class="button-add">Reject</a></td>
-                
-            </tr> -->
-            <?php
-while($rows=mysqli_fetch_assoc($result))
-{
-?>
-<tbody class="Servicesdata">
-
-  <tr>
-    <td><?php echo $rows['name'];?></td>
-    <td><?php echo $rows['category'];?></td>
-    <td><?php echo $rows['price'];?></td>
-    <td><?php echo $rows['timing'];?></td>
-    <td><?php echo $rows['quantity'];?></td>
-    <td><?php echo $rows['date'];?></td>
-
-
-    <td>
-      <?php
-     
-        echo '<p><button class=accept>"Rejected"</button></p>';}?></a>
-</td>
-</tr>
-</tbody>
-
-             </thead>
-</table>
-
-               </div>
-
-
-<script>
-  
-
-    var app = angular.module("app", []); app.controller("ListController",
-              ["$scope", function ($scope) { $scope.Searches = search; }]); 
-
-</script>
-</div>
-
-
-
-
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-</script>
-</center>
-
-
-
-
-
-     
-
-      
-      <!--start overlay-->
-          <div class="overlay toggle-menu"></div>
-        <!--end overlay-->
+	  
+	  <!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
@@ -507,7 +238,7 @@ for (i = 0; i < coll.length; i++) {
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
-    
+	
 	<!--Start footer-->
 	
 <footer class="footer" style="top: 180%; ">

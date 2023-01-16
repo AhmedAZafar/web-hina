@@ -6,12 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Event planner-Create Event</title>
+  <title>Event Planner- Calender</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
   <!-- loader-->
   <link href="assets/css/pace.min.css" rel="stylesheet"/>
   <script src="assets/js/pace.min.js"></script>
   <!--favicon-->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <!--Full Calendar Css-->
+  <link href="assets/plugins/fullcalendar/css/fullcalendar.min.css" rel='stylesheet'/>
   <!-- simplebar CSS-->
   <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
@@ -24,15 +33,15 @@
   <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="assets/css/app-style.css" rel="stylesheet"/>
-  
 </head>
-
 <body class="bg-theme bg-theme9">
- 
+   <!-- start loader -->
+   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
+   <!-- end loader -->
 <!-- Start wrapper-->
  <div id="wrapper">
  
-  <!--Start sidebar-wrapper-->
+   <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="index.html">
@@ -50,7 +59,7 @@
       <li>
         <a href="EventPlanner_calender.php">
           <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <small class="badge float-right badge-light">New</small>
+          <!-- <small class="badge float-right badge-light">New</small> -->
         </a>
       </li>
 
@@ -73,14 +82,14 @@
       </li>
 
       <li>
-        <a href="EventPlanner-Staff.php">
-          <i class="zmdi zmdi-male-female"></i> <span>Staff</span>
+        <!-- <a href="EventPlanner-Staff.php"> -->
+          <!-- <i class="zmdi zmdi-male-female"></i> <span>Staff</span> -->
         </a>
       </li>
 
       <li>
-        <a href="EventPlanner-customers.php">
-          <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span>
+        <!-- <a href="EventPlanner-customers.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span> -->
         </a>
       </li>
 
@@ -101,11 +110,10 @@
         </a>
       </li>
       <li>
-        <a href="Attendance.php">
-          <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span>
+        <!-- <a href="Attendance.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span> -->
         </a>
       </li>
-
 
 
     </ul>
@@ -124,171 +132,162 @@
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
+         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
       </form>
     </li>
   </ul>
      
   <ul class="navbar-nav align-items-center right-nav-link">
-    <li class="nav-item dropdown-lg">
+    <!-- <li class="nav-item dropdown-lg"> -->
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
+      <!-- <i class="fa fa-envelope-open-o"></i></a> -->
     </li>
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Rabia Javed</h6>
-            <p class="user-subtitle">Rabia@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Rabia Javed</h6> -->
+            <!-- <p class="user-subtitle">Rabia@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <!-- <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
+        
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        <!-- <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> -->
       </ul>
     </li>
   </ul>
 </nav>
 </header>
 <!--End topbar header-->
-
-
 <div class="clearfix"></div>
 	
   <div class="content-wrapper">
     <div class="container-fluid">
-     
-      
-   <div class="col-12 col-lg-12">
-     <div class="card">
-       <div id="wrapper">
-
-  <div class="card card-authentication1 mx-auto my-4">
-    <div class="card-body">
-     <div class="card-content p-2">
-      <div class="text-center">
-        <img src="assets/images/logo-icon.png" alt="logo icon">
-      </div>
-      <div class="card-title text-uppercase text-center py-3">Create Event</div>
-        <form>
-        <div class="form-group">
-        <label for="exampleInputName" >Event Name</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" value="Reception">
-          <div class="form-control-position">
-            <i class="icon-user"></i>
-          </div>
-         </div>
-        </div>
-        <div class="form-group">
-        <label for="exampleInputEmailId" >Timings</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" value="01:00pm-06:00pm">
-          <div class="form-control-position">
-            <i class="icon-envelope-open"></i>
-          </div>
-         </div>
-        </div>
-        <div class="form-group">
-         <label for="exampleInputPassword" >Cost</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" value="300000 ">
-          <div class="form-control-position">
-            <i class="icon-lock"></i>
-          </div>
-         </div>
-        </div>
-        
-
-<div class="form-group">
-         <label for="" >Date</label>
-         <div class="position-relative has-icon-right">     
-          <input type="date" id="" class="form-control input-shadow" placeholder="Enter salary">
-          
-         </div>
-        </div>
-
-
-
-
-        
-
-
- <div class="form-group">
-        <label for="exampleInputPassword">Services:</label><br>
-<select id="ct" name="ctgry" class="form-control input-shadow">
-  <option value="Decoration and Lighting">Decoration and Lighting</option>
-  <option value="Limo and Transportation">Limo and Transportation</option>
-  <option value="Caterers">Caterers</option>
-  <option value="Flowers">Flowers</option>
-  <option value="Gifts">Gifts</option>
-  <option value="Bakery: cakes and desserts">Bakery: cakes and desserts</option>
-</select>
-        
-         </div>
-        
-       <button type="button" class="btn btn-light btn-block waves-effect waves-light"><b>CREATE</b></button>
-        
-      
-      
-       </form>
-      
-      </div>
-      
-       </div>
-
-
-
-
-
-
-
+<?php
+include('config.php');
+$query = $conn->query("SELECT * FROM calender ORDER BY id");
+?>
+  <script>
+    $(document).ready(function() {
+     var calendar = $('#calendar').fullCalendar({
+      editable:true,
+      header:{
+       left:'prev,next today',
+       center:'title',
+       right:'month,agendaWeek,agendaDay'
+      },
+      events: [<?php while ($row = $query ->fetch_object()) { ?>{ id : '<?php echo $row->id; ?>', title : '<?php echo $row->title; ?>', start : '<?php echo $row->start_event; ?>', end : '<?php echo $row->end_event; ?>', }, <?php } ?>],
+      selectable:true,
+      selectHelper:true,
+      select: function(start, end, allDay)
+      {
+      var title = prompt("Enter Event Title");
+      if(title)
+      {
+        var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+        var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+        $.ajax({
+        url:"insertcalender.php",
+        type:"POST",
+        data:{title:title, start:start, end:end},
+        success:function(data)
+        {
+          calendar.fullCalendar('refetchEvents');
+          alert("Added Successfully");
+          window.location.replace("EventPlanner_calender.php");
+        }
+        })
+      }
+      },
+ 
+      editable:true,
+      eventResize:function(event)
+      {
+      var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+      var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+      var title = event.title;
+      var id = event.id;
+      $.ajax({
+        url:"updatecalender.php",
+        type:"POST",
+        data:{title:title, start:start, end:end, id:id},
+        success:function(){
+        calendar.fullCalendar('refetchEvents');
+        alert('Event Update');
+        }
+      })
+      },
+ 
+      eventDrop:function(event)
+      {
+      var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+      var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+      var title = event.title;
+      var id = event.id;
+      $.ajax({
+        url:"updatecalender.php",
+        type:"POST",
+        data:{title:title, start:start, end:end, id:id},
+        success:function()
+        {
+        calendar.fullCalendar('refetchEvents');
+        alert("Event Updated");
+        }
+      });
+      },
+ 
+      eventClick:function(event)
+      {
+      if(confirm("Are you sure you want to remove it?"))
+      {
+        var id = event.id;
+        $.ajax({
+        url:"deletecalender.php",
+        type:"POST",
+        data:{id:id},
+        success:function()
+        {
+          calendar.fullCalendar('refetchEvents');
+          alert("Event Removed");
+        }
+        })
+      }
+      },
+ 
+    });
+  });
+</script>
+<div class="container">
+    <div id="calendar"></div>
    </div>
-  </div>
-            </div>
-          </div>
-        </div>
-      
-	  
-	  <!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
-
-    </div>
-    <!-- End container-fluid-->
-    
-    </div><!--End content-wrapper-->
-   <!--Start Back To Top Button-->
-    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
-    <!--End Back To Top Button-->
 	
 	<!--Start footer-->
-	
-<footer class="footer" style="top: 140%; ">
+	<footer class="footer" style="top: 100%;">
       <div class="container">
         <div class="text-center">
           Copyright © 2022 Dream Events, Pakistan
            <ul class="social-icons" style=" padding: 0;
     list-style: none;
     margin: 1em; ">
-       <li><a href="https://www.instagram.com/de.dreamevents/"><i class="fa fa-instagram" ></i></a></li>
+        <li><a href="https://www.instagram.com/de.dreamevents/"><i class="fa fa-instagram" ></i></a></li>
         <li><a href="https://mobile.twitter.com/DreamEvents657"><i class="fa fa-twitter"></i></a></li>
         <li><a href="https://www.facebook.com/dreamevents84/"><i class="fa fa-facebook"></i></a></li>
     </ul>
@@ -340,6 +339,7 @@
 
 
   <!-- Bootstrap core JavaScript-->
+  
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
@@ -351,9 +351,15 @@
   
   <!-- Custom scripts -->
   <script src="assets/js/app-script.js"></script>
+  
+  <!-- Full Calendar -->
+  <script src='assets/plugins/fullcalendar/js/moment.min.js'></script>
+  <script src='assets/plugins/fullcalendar/js/fullcalendar.min.js'></script>
+  <script src="assets/plugins/fullcalendar/js/fullcalendar-custom-script.js"></script>
 	
 </body>
 </html>
+
 
 <style>
 

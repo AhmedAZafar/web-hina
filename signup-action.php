@@ -23,10 +23,7 @@ if(isset($_POST['submit']))
 if($pass==$confirmedpassword)
 {
 	//$hpwd=password_hash($pwd, PASSWORD_DEFAULT);
-
-	$conn = new mysqli($dbServername, $dbUsername, $dbPassword, $dbName );
-	if ($conn->connect_error) {
-	trigger_error('Database connection failed: ' . $conn->connect_error, E_USER_ERROR);
+	include('config.php');
 }
 
  
@@ -45,12 +42,9 @@ $stmt->execute();
 $stmt->close();
 $conn->close();
 header('location:login.php?status=AC');
+
 }
-else
-header('location:index.php?status=PNM'); 
-}  
-else
-	echo "Not Submitted";
+
 
 
 

@@ -47,7 +47,6 @@
 		  <div class="card-title text-uppercase text-center py-3">Sign In</div>
      
 		    <form action="login-action.php" method="POST" >
-          
 			  <div class="form-group">
 			  <label for="exampleInputUsername" class="sr-only">Username</label>
 			   <div class="position-relative has-icon-right">
@@ -74,12 +73,12 @@
 			<div class="form-row">
 			 <div class="form-group col-6">
 			   <div class="icheck-material-white">
-                <!-- <input type="checkbox" id="user-checkbox" checked="" /> -->
-                <!-- <label for="user-checkbox">Remember me</label> -->
+                <input type="checkbox" id="user-checkbox" checked="" />
+                <label for="user-checkbox">Remember me</label>
 			  </div>
 			 </div>
 			 <div class="form-group col-6 text-right">
-			  <!-- <a href="reset-password.php">Reset Password</a> -->
+			  <a href="reset-password.php">Reset Password</a>
 			 </div>
 			</div>
 			

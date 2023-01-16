@@ -6,14 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Event Planner- Calender</title>
+  <title>Event planner-Create Event</title>
   <!-- loader-->
   <link href="assets/css/pace.min.css" rel="stylesheet"/>
   <script src="assets/js/pace.min.js"></script>
   <!--favicon-->
   <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-  <!--Full Calendar Css-->
-  <link href="assets/plugins/fullcalendar/css/fullcalendar.min.css" rel='stylesheet'/>
   <!-- simplebar CSS-->
   <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->
@@ -30,15 +28,11 @@
 </head>
 
 <body class="bg-theme bg-theme9">
-
-   <!-- start loader -->
-   <div id="pageloader-overlay" class="visible incoming"><div class="loader-wrapper-outer"><div class="loader-wrapper-inner" ><div class="loader"></div></div></div></div>
-   <!-- end loader -->
-
+ 
 <!-- Start wrapper-->
  <div id="wrapper">
  
-   <!--Start sidebar-wrapper-->
+  <!--Start sidebar-wrapper-->
    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
      <div class="brand-logo">
       <a href="index.html">
@@ -113,6 +107,10 @@
       </li>
 
 
+
+      
+
+
     </ul>
    
    </div>
@@ -165,7 +163,6 @@
         <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
-        
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
       </ul>
@@ -175,36 +172,108 @@
 </header>
 <!--End topbar header-->
 
+
 <div class="clearfix"></div>
 	
   <div class="content-wrapper">
     <div class="container-fluid">
-    
-    <div class="mt-3">
-      <div id='calendar'></div>
-    </div>
-			
-		<!--start overlay-->
+     
+      
+   <div class="col-12 col-lg-12">
+     <div class="card">
+       <div id="wrapper">
+
+  <div class="card card-authentication1 mx-auto my-4">
+    <div class="card-body">
+     <div class="card-content p-2">
+      <div class="text-center">
+        <img src="assets/images/logo-icon.png" alt="logo icon">
+      </div>
+      <div class="card-title text-uppercase text-center py-3">Create Event</div>
+      <form action="Eventcreate-action.php" method="POST" enctype='multipart/form-data'>
+        <!-- <div class="form-group">
+        <label for="im">Image:</label><br>
+        <input type="file" id="" name="image" class="form-control input-shadow"; /><br> -->
+        <label for="exampleInputPassword" class="label">Event Name</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="eventname" class="form-control input-shadow" placeholder="Enter Event Name">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Customer</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="customer" class="form-control input-shadow" placeholder="Enter Customer">
+          
+         </div>
+        </div>
+        
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Date</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="date" class="form-control input-shadow" placeholder="Enter Date">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Time</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="time" class="form-control input-shadow" placeholder="Enter time">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Venue</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="venue" class="form-control input-shadow" placeholder="Enter venue">
+          
+         </div>
+        </div>
+        <input type="submit" name="submit" value="Create Event" class="btn btn-light btn-block" >
+        
+      
+      
+       </form>
+      
+      </div>
+      
+       </div>
+
+
+
+
+
+
+
+   </div>
+  </div>
+            </div>
+          </div>
+        </div>
+      
+	  
+	  <!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->	
-			
+		<!--end overlay-->
+
     </div>
     <!-- End container-fluid-->
-   </div><!--End content-wrapper-->
-   
-  <!--Start Back To Top Button-->
+    
+    </div><!--End content-wrapper-->
+   <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
 	
 	<!--Start footer-->
-	<footer class="footer" style="top: 100%;">
+	
+<footer class="footer" style="top: 100%; ">
       <div class="container">
         <div class="text-center">
           Copyright © 2022 Dream Events, Pakistan
            <ul class="social-icons" style=" padding: 0;
     list-style: none;
     margin: 1em; ">
-        <li><a href="https://www.instagram.com/de.dreamevents/"><i class="fa fa-instagram" ></i></a></li>
+       <li><a href="https://www.instagram.com/de.dreamevents/"><i class="fa fa-instagram" ></i></a></li>
         <li><a href="https://mobile.twitter.com/DreamEvents657"><i class="fa fa-twitter"></i></a></li>
         <li><a href="https://www.facebook.com/dreamevents84/"><i class="fa fa-facebook"></i></a></li>
     </ul>
@@ -256,7 +325,6 @@
 
 
   <!-- Bootstrap core JavaScript-->
-  
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
@@ -268,15 +336,9 @@
   
   <!-- Custom scripts -->
   <script src="assets/js/app-script.js"></script>
-  
-  <!-- Full Calendar -->
-  <script src='assets/plugins/fullcalendar/js/moment.min.js'></script>
-  <script src='assets/plugins/fullcalendar/js/fullcalendar.min.js'></script>
-  <script src="assets/plugins/fullcalendar/js/fullcalendar-custom-script.js"></script>
 	
 </body>
 </html>
-
 
 <style>
 

@@ -1,3 +1,7 @@
+<?php  
+include("includes/config.php");
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Event planner-post</title>
+  <title>Vendor-Gallary</title>
   <!-- loader-->
   <link href="assets/css/pace.min.css" rel="stylesheet"/>
   <script src="assets/js/pace.min.js"></script>
@@ -41,71 +45,33 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">Event Planner Panel</li>
-       <li>
-        <a href="EventPlanner_Dashboard.php">
-          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="EventPlanner_calender.php">
-          <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <small class="badge float-right badge-light">New</small>
+      <li class="sidebar-header">Vendor Panel</li>
+      
+     
+<li>
+        <a href="Vendor-Profile.php">
+          <i class="zmdi zmdi-account"></i> <span>Profile</span>
+
         </a>
       </li>
 
       <li>
-        <a href="EventPlanner_Profile.php">
-          <i class="zmdi zmdi-account-circle"></i> <span>Profile</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="EventPlanner-services.php">
+        <a href="Vendor-Services.php">
           <i class="zmdi zmdi-8tracks"></i> <span>Services</span>
         </a>
       </li>
 
       <li>
-        <a href="EventPlanner-Bookings.php">
+        <a href="Vendor-bookings.php">
           <i class="zmdi zmdi-book"></i> <span>Bookings</span>
         </a>
       </li>
-
       <li>
-        <a href="EventPlanner-Staff.php">
-          <i class="zmdi zmdi-male-female"></i> <span>Staff</span>
+        <a href="Vendor-Gallary.php">
+          
+           <i class="zmdi zmdi-image"></i> <span>Gallary</span>
         </a>
       </li>
-
-      <li>
-        <a href="EventPlanner-customers.php">
-          <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span>
-        </a>
-      </li>
-
-      <li>
-        <a href="EventPlanner-post.php">
-          <i class="zmdi zmdi-brush"></i> <span>Post</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="EventPlanner-events.php">
-          <i class="zmdi zmdi-book-image"></i> <span>Events</span>
-        </a>
-      </li>
-      <li>
-        <a href="EventPlanner-reviews.php">
-          <i class="zmdi zmdi-info"></i> <span>Reviews</span>
-        </a>
-      </li>
-      <li>
-        <a href="Attendance.php">
-          <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span>
-        </a>
-      </li>
-
 
 
     </ul>
@@ -124,44 +90,40 @@
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
+         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
       </form>
     </li>
   </ul>
      
   <ul class="navbar-nav align-items-center right-nav-link">
+    
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
-    </li>
-    <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Rabia Javed</h6>
-            <p class="user-subtitle">Rabia@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Hina Noor</h6> -->
+            <!-- <p class="user-subtitle">Hina@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
+       
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
-        <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+       <!-- <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a> -->
       </ul>
     </li>
   </ul>
@@ -171,76 +133,87 @@
 
 
 <div class="clearfix"></div>
-	
-  <div class="content-wrapper">
+
+<div class="content-wrapper">
     <div class="container-fluid">
      
-      
-   <div class="col-12 col-lg-12">
-     <div class="card">
-       <div id="wrapper">
+     <section class="gallery" id="gallery">
 
-  <div class="card card-authentication1 mx-auto my-4">
-    <div class="card-body">
-     <div class="card-content p-2">
-      <div class="text-center">
-        <img src="assets/images/logo-icon.png" alt="logo icon">
-      </div>
-      <div class="card-title text-uppercase text-center py-3">Post Promotions</div>
-        <form>
-        <div class="form-group">
-        <label for="im">Image:</label><br>
-<input type="file" id="im" name="image" class="form-control input-shadow"; /><br>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" placeholder="Enter Promotion Caption">
-          
-         </div>
-        </div>
-        <div class="form-group">
-         <label for="exampleInputPassword" class="sr-only">Availability</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" placeholder="Enter Availability">
-          
-         </div>
-        </div>
-        
-        <div class="form-group">
-         <label for="exampleInputPassword" class="sr-only">Discount</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" placeholder="Enter Discount">
-          
-         </div>
-        </div>
-        
-        
-         
-        
-       <button type="button" class="btn btn-light btn-block waves-effect waves-light">Post</button>
-        
-      
-      
-       </form>
-      
-      </div>
-      
-       </div>
+   
+       <div class="card-header" style="font-size: 2rem;">Gallary
+      <!-- <form action="upload.php"
+           method="post"
+           enctype="multipart/form-data"  class="form-control input-shadow" style="width: 50%; ">
 
+           <input type="file" 
+                  name="my_image">
 
-
-
-
-
-
-   </div>
-  </div>
-            </div>
+           <input type="submit" 
+                  name="submit"
+                  value="Upload">
+              </form> -->
           </div>
+          
+              <br>
+       <br>
+
+<br>
+<br>
+
+
+
+                
+  
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #ccc;
+        }
+
+        main{
+
+
+            width: 80%;
+            margin: 0px auto;
+        }
+        .alb {
+            width: 30%;
+            float: left;
+            margin: 5px;
+            background: auto;
+            padding: 10px;
+            box-sizing: border-box;
+             border:1rem solid #333;
+             border-radius: .5rem;
+             position: relative;
+    
+    cursor: pointer;
+    overflow: hidden;
+
+        }
+        .alb img {
+             object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+
+
+     
+
+    </div>
         </div>
       
-	  
-	  <!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
+    
+    <!--start overlay-->
+      <div class="overlay toggle-menu"></div>
+    <!--end overlay-->
 
     </div>
     <!-- End container-fluid-->
@@ -249,16 +222,17 @@
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
-	
-	<!--Start footer-->
-<footer class="footer" style="top: 100%; ">
+  
+  <!--Start footer-->
+  
+<footer class="footer" style="top: 440%; ">
       <div class="container">
         <div class="text-center">
           Copyright © 2022 Dream Events, Pakistan
            <ul class="social-icons" style=" padding: 0;
     list-style: none;
     margin: 1em; ">
-       <li><a href="https://www.instagram.com/de.dreamevents/"><i class="fa fa-instagram" ></i></a></li>
+        <li><a href="https://www.instagram.com/de.dreamevents/"><i class="fa fa-instagram" ></i></a></li>
         <li><a href="https://mobile.twitter.com/DreamEvents657"><i class="fa fa-twitter"></i></a></li>
         <li><a href="https://www.facebook.com/dreamevents84/"><i class="fa fa-facebook"></i></a></li>
     </ul>
@@ -266,9 +240,9 @@
 
       </div>
     </footer>
-	<!--End footer-->
-	
-	<!--start color switcher-->
+  <!--End footer-->
+  
+  <!--start color switcher-->
    <div class="right-sidebar">
     <div class="switcher-icon">
       <i class="zmdi zmdi-settings zmdi-hc-spin"></i>
@@ -297,7 +271,7 @@
         <li id="theme10"></li>
         <li id="theme11"></li>
         <li id="theme12"></li>
-		<li id="theme13"></li>
+    <li id="theme13"></li>
         <li id="theme14"></li>
         <li id="theme15"></li>
       </ul>
@@ -313,7 +287,7 @@
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
-	
+  
   <!-- simplebar js -->
   <script src="assets/plugins/simplebar/js/simplebar.js"></script>
   <!-- sidebar-menu js -->
@@ -321,7 +295,7 @@
   
   <!-- Custom scripts -->
   <script src="assets/js/app-script.js"></script>
-	
+  
 </body>
 </html>
 

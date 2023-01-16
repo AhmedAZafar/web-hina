@@ -1,6 +1,13 @@
-
-
 <!DOCTYPE html>
+<?php
+session_start();
+if($_SESSION['username']==NULL)
+{
+  header("location:login.php");
+}
+else
+{
+?>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -8,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Vendor-Services</title>
+  <title>Event planner-Create Event</title>
   <!-- loader-->
   <link href="assets/css/pace.min.css" rel="stylesheet"/>
   <script src="assets/js/pace.min.js"></script>
@@ -26,8 +33,6 @@
   <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
   <!-- Custom Style-->
   <link href="assets/css/app-style.css" rel="stylesheet"/>
-
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
   
 </head>
 
@@ -45,35 +50,72 @@
      </a>
    </div>
    <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header">Vendor Panel</li>
-      
-     
-     <li>
-        <a href="Vendor-Profile.php">
-          <i class="zmdi zmdi-account"></i> <span>Profile</span>
-
+      <li class="sidebar-header">Event Planner Panel</li>
+      <li>
+        <a href="EventPlanner_Dashboard.php">
+          <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="EventPlanner_calender.php">
+          <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
+          <small class="badge float-right badge-light">New</small>
         </a>
       </li>
 
       <li>
-        <a href="Vendor-Services.php">
+        <a href="EventPlanner_Profile.php">
+          <i class="zmdi zmdi-account-circle"></i> <span>Profile</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="EventPlanner-services.php">
           <i class="zmdi zmdi-8tracks"></i> <span>Services</span>
         </a>
       </li>
 
       <li>
-        <a href="Vendor-bookings.php">
+        <a href="EventPlanner-Bookings.php">
           <i class="zmdi zmdi-book"></i> <span>Bookings</span>
         </a>
       </li>
+
       <li>
-        <a href="Vendor-Gallary.php">
-          
-           <i class="zmdi zmdi-image"></i> <span>Gallary</span>
+        <a href="EventPlanner-Staff.php">
+          <i class="zmdi zmdi-male-female"></i> <span>Staff</span>
         </a>
       </li>
 
+      <li>
+        <a href="EventPlanner-customers.php">
+          <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="EventPlanner-post.php">
+          <i class="zmdi zmdi-brush"></i> <span>Post</span>
+        </a>
+      </li>
       
+      <li>
+        <a href="EventPlanner-events.php">
+          <i class="zmdi zmdi-book-image"></i> <span>Events</span>
+        </a>
+      </li>
+      <li>
+        <a href="EventPlanner-reviews.php">
+          <i class="zmdi zmdi-info"></i> <span>Reviews</span>
+        </a>
+      </li>
+      <li>
+        <a href="Attendance.php">
+          <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span>
+        </a>
+      </li>
+
+
 
     </ul>
    
@@ -98,7 +140,10 @@
   </ul>
      
   <ul class="navbar-nav align-items-center right-nav-link">
-    
+    <li class="nav-item dropdown-lg">
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-envelope-open-o"></i></a>
+    </li>
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
       <i class="fa fa-bell-o"></i></a>
@@ -106,7 +151,7 @@
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span>
+        <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span>
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
@@ -114,23 +159,36 @@
            <div class="media">
              <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
             <div class="media-body">
-            <h6 class="mt-2 user-title">Hina Noor</h6>
-            <p class="user-subtitle">Hina@gmail.com</p>
+            <h6 class="mt-2 user-title">Rabia Javed</h6>
+            <p class="user-subtitle">Rabia@gmail.com</p>
             </div>
            </div>
           </a>
         </li>
-       
+        <li class="dropdown-divider"></li>
+        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
         <li class="dropdown-divider"></li>
         <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
         <li class="dropdown-divider"></li>
-    <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a>
+        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
       </ul>
     </li>
   </ul>
 </nav>
 </header>
 <!--End topbar header-->
+<?php
+
+
+$id=$_GET['id'];
+
+include('config.php');
+
+
+$query="SELECT * FROM events_booked where id=$id";
+$result=mysqli_query($conn,$query);
+
+?>
 
 
 <div class="clearfix"></div>
@@ -138,100 +196,92 @@
   <div class="content-wrapper">
     <div class="container-fluid">
      
-      <div class="row">
-   <div class="col-12 col-lg-12">
-    <div class="container" ng-app="app" ng-controller="ListController">
-     
-
-     <div class="content">
-  <center>
-
-
-
-    <?php
-    if (isset($_GET['status'])) 
-      {
-      if ($_GET['status'] == 'IFU') 
-      {
-        echo "Image failed to upload";
-      }
-      if ($_GET['status'] == 'AS') 
-      {
-        echo "Added Successfully";
-      }
-      if ($_GET['status'] == 'FA') 
-      {
-        echo "Failed to Add";
-      }
-      if ($_GET['status'] == 'NDF') 
-      {
-        echo "No Data Found"; 
-      }
-      if ($_GET['status'] == 'US') 
-      {
-        echo "Updated Successfully";
-      }
-      if ($_GET['status'] == 'FU') 
-      {
-        echo "Failed to Update";
-      }
-      if ($_GET['status'] == 'FRCI') 
-      {
-        echo "Failed to Remove Category Image";
-      }
-      if ($_GET['status'] == 'DS') 
-      {
-        echo "Deleted Successfully";
-      }
-      if ($_GET['status'] == 'FD') 
-      {
-        echo "Failed to Delete";
-      }
-    }
-    ?>
-     
-       <div class="card-header" style="font-size: 2rem;">Services
-       <a href="Vendor-addservices.php" class="button-add"> <button class="b" style="font-size: 1rem; border: none;border-radius: 5px; background-color:#f7b731;color: white; margin-left: 70%">Add Services</button></a>
-
-       
       
-     </div>
-     <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  />
-         <div class="table-responsive">
-                 <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
-                  <thead>
-                   <tr>
-                     <th>ID</th>
-                     <th>Image</th>        
-                     <th> Name</th>
-                     <th>Company</th>
-                     <th>Cost</th>
-                     <th>Availability</th>
-                    <th>Category</th>
-                    <th>Actions</th>
-                 
-                   </tr>
-                    <?php include("vendor-view-services.php"); ?> 
-                 </div>
-                   </thead>
+   <div class="col-12 col-lg-12">
+     <div class="card">
+       <div id="wrapper">
 
-                 
-           
-</table>
-
-
-               </div>
-             </center>
-           </div>
+  <div class="card card-authentication1 mx-auto my-4">
+    <div class="card-body">
+     <div class="card-content p-2">
+      <div class="text-center">
+        <img src="assets/images/logo-icon.png" alt="logo icon">
+      </div>
+      <?php
+while($rows=mysqli_fetch_assoc($result))
+{
+?>
+<div>
+      <div class="card-title text-uppercase text-center py-3">Edit Event</div>
+      <form action="Eventedit-action.php" method="POST" enctype='multipart/form-data'>
+        <!-- <div class="form-group">
+        <label for="im">Image:</label><br>
+        <input type="file" id="" name="image" class="form-control input-shadow"; /><br> -->
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Id</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="id" class="form-control input-shadow" value="<?php echo $rows['id'];?>" readonly>
+          
          </div>
+        </div>
+        <div class="form-group">
+        <label for="exampleInputPassword" class="label">Event Name</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="eventname" class="form-control input-shadow" value="<?php echo $rows['eventname'];?>">
+          
+         </div>
+</div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Customer</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="customer" class="form-control input-shadow" value="<?php echo $rows['customer'];?>">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Date</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="date" class="form-control input-shadow" value="<?php echo $rows['date'];?>">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Time</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="time" class="form-control input-shadow" value="<?php echo $rows['time'];?>">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Venue</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="venue" class="form-control input-shadow" value="<?php echo $rows['venue'];}?>">
+          
+         </div>
+        </div>
+        <input type="submit" name="submit" value="Edit Event" class="btn btn-light btn-block" >
+        
+      
+      
+       </form>
+      
+      </div>
+</div>
        </div>
-     </div>
-   </div>
- </div>
+
+
+
+
+
+</div>
 </div>
 
-      
-	  
+  
+  </div>
+            </div>
+          </div>
+        </div>
+</div>
 	  <!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
 		<!--end overlay-->
@@ -245,14 +295,15 @@
     <!--End Back To Top Button-->
 	
 	<!--Start footer-->
-<footer class="footer" style="top: 150%; ">
+	
+<footer class="footer" style="top: 140%; ">
       <div class="container">
         <div class="text-center">
           Copyright © 2022 Dream Events, Pakistan
            <ul class="social-icons" style=" padding: 0;
     list-style: none;
     margin: 1em; ">
-        <li><a href="https://www.instagram.com/de.dreamevents/"><i class="fa fa-instagram" ></i></a></li>
+       <li><a href="https://www.instagram.com/de.dreamevents/"><i class="fa fa-instagram" ></i></a></li>
         <li><a href="https://mobile.twitter.com/DreamEvents657"><i class="fa fa-twitter"></i></a></li>
         <li><a href="https://www.facebook.com/dreamevents84/"><i class="fa fa-facebook"></i></a></li>
     </ul>
@@ -319,7 +370,6 @@
 </body>
 </html>
 
-
 <style>
 
  .social-icons li{
@@ -330,3 +380,6 @@
         color: rgba(255, 255, 255, 0.65);
 }
 </style>
+<?php
+}
+?>

@@ -96,45 +96,99 @@
     
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Rabia Javed</h6>
-            <p class="user-subtitle">Rabia@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Rabia Javed</h6> -->
+            <!-- <p class="user-subtitle">Rabia@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <!-- <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        <!-- <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> -->
       </ul>
     </li>
   </ul>
 </nav>
 </header>
 <!--End topbar header-->
-
+<?php
+include('config.php');
+$query="SELECT * FROM users WHERE type='Customer'";
+$result=mysqli_query($conn,$query);
+?>
 <div class="clearfix"></div>
   
   <div class="content-wrapper">
     
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+        </div>
+        <div class="card-body">
+          <table class="table" >
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>FULL NAME</th>
+                <th>USER NAME</th>
+                <th>Email</th>
+                <th>ACTION</th>
 
+</tr>
+
+</thead>
+<?php
+while($rows=mysqli_fetch_assoc($result))
+{
+?>
+<tbody class="Customerdata">
+
+  <tr>
+    <td><?php echo $rows['id'];?></td>
+    <td><?php echo $rows['fullname'];?></td>
+    <td><?php echo $rows['username'];?></td>
+    <td><?php echo $rows['bussinessemail'];?></td>
+    <td>
+      <?php
+      if($rows['status']==1){
+        echo'<p><a href="status.php?id='.$rows['id'].'&status=0" class=delete>"Unblock"</a></p>';}
+        else{
+          echo '<p><a href="status.php?id='.$rows['id'].'&status=1" class=delete>"Block"</a></p>';}?></a>
+</td>
+</tr>
+</tbody>
+<?php
+}
+?>
+</table>
+    
+
+
+
+</div>
+</div>
+  </div>
+</div>
+</div>
   <!--Start Dashboard Content-->
-
+<!-- 
   <div class="card mt-3">
     <div class="card-content" >
     
@@ -289,7 +343,7 @@
 
 
 </div>
-</div>
+</div> -->
 </div>
         
                </div>
@@ -498,6 +552,28 @@
         font-size: 1.2em;
         color: rgba(255, 255, 255, 0.65);
 }
+.delete{
+  background-color:white;
+  border-radius: 12px;
+  color:black;
+  padding:7px;
+  border-radius:2px;
+  margin-right:10px;
+  font-family:sans-serif;
+    margin-top: -50px;
+    min-height:30px; 
+    min-width: 120px;
+    text-decoration: none;
 
+}
+.delete:hover {
+      background-color:black;
+      color:white;
+      transition: 0.7s;
+  }
 
 </style>
+
+
+
+

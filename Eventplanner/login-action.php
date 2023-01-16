@@ -1,9 +1,5 @@
 <?php 
 
-
-session_start();
-
-
 include('includes/config.php');
 $username = $_POST['username'];
 $pass = $_POST['password'];
@@ -33,7 +29,7 @@ $stmt->execute();
 $stmt->store_result();
 if($stmt->num_rows>0)
 {
-	$stmt->bind_result($id, $fullname, $username, $bussinessemail, $phoneno, $companyname, $address, $password, $confirmedpassword, $type, $status);
+	$stmt->bind_result($id, $fullname, $username, $bussinessemail, $phoneno, $companyname, $address, $password, $confirmedpassword, $type);
 	while($stmt->fetch())
 	{
 		//$matched = password_verify($password, $password);
@@ -50,13 +46,12 @@ if($stmt->num_rows>0)
 			$_SESSION["password"]=$password;
 			$_SESSION["confirmedpassword"]=$confirmedpassword;
 			$_SESSION["type"]=$type;
-			$_SESSION["status"]=$status;
 
 			setcookie("username",$username,time()+60*60*24*30);
 		}
 	}
 
-	
+
 
 
 
@@ -65,12 +60,11 @@ if($pass==$password)
 {
 	
 	
-	if($type=='Vendor'&& $status==0){
+	if($type=='Vendor' ){
 	header("location:Vendor-Profile.php");}
-	if($type=='Event Planner'&& $status==0){
+	if($type=='Event Planner'){
 	header("location:EventPlanner_Dashboard.php");}
-	if($type=='Customer'&& $status==0){
-		header("location:EventPlanner_Dashboard.php");}
+	
 }
 else
 
@@ -84,7 +78,7 @@ if($username=='admin' && $pass=='admin1' ){
 	
 else
 	{
-		echo "Incorrect login";
+		echo "incorrect login";
 	}
 
 

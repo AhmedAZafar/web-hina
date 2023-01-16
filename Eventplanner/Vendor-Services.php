@@ -1,14 +1,6 @@
 
 
 <!DOCTYPE html>
-<?php
-session_start();
-if($_SESSION['username']==NULL)
-{
-  header("location:login.php");
-}
-?>
-
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -99,8 +91,8 @@ if($_SESSION['username']==NULL)
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
-         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
+        <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
       </form>
     </li>
   </ul>
@@ -108,154 +100,135 @@ if($_SESSION['username']==NULL)
   <ul class="navbar-nav align-items-center right-nav-link">
     
     <li class="nav-item dropdown-lg">
-      <!-- <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"> -->
-      <!-- <i class="fa fa-bell-o"></i></a> -->
+      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+      <i class="fa fa-bell-o"></i></a>
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <!-- <span class="user-profile"><img src="" class="img-circle" alt="user avatar"></span> -->
+        <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span>
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
-        <!-- <a href="javaScript:void();"> -->
+        <a href="javaScript:void();">
            <div class="media">
-             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
+             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
             <div class="media-body">
-            <!-- <h6 class="mt-2 user-title">Hina Noor</h6>
-            <p class="user-subtitle">Hina@gmail.com</p> -->
+            <h6 class="mt-2 user-title">Hina Noor</h6>
+            <p class="user-subtitle">Hina@gmail.com</p>
             </div>
            </div>
           </a>
         </li>
        
-        <!-- <li class="dropdown-divider"></li>
+        <li class="dropdown-divider"></li>
         <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
         <li class="dropdown-divider"></li>
-    <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a> -->
+    <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a>
       </ul>
     </li>
   </ul>
 </nav>
 </header>
-<!-- End topbar header -->
+<!--End topbar header-->
+
 
 <div class="clearfix"></div>
-  
+	
   <div class="content-wrapper">
     <div class="container-fluid">
      
       <div class="row">
    <div class="col-12 col-lg-12">
-
-       <div class="container" ng-app="app" ng-controller="ListController">
+    <div class="container" ng-app="app" ng-controller="ListController">
      
 
      <div class="content">
   <center>
-       <div class="card-header" style="font-size: 2rem;">Services Details
+
+
+
+    <?php
+    if (isset($_GET['status'])) 
+      {
+      if ($_GET['status'] == 'IFU') 
+      {
+        echo "Image failed to upload";
+      }
+      if ($_GET['status'] == 'AS') 
+      {
+        echo "Added Successfully";
+      }
+      if ($_GET['status'] == 'FA') 
+      {
+        echo "Failed to Add";
+      }
+      if ($_GET['status'] == 'NDF') 
+      {
+        echo "No Data Found"; 
+      }
+      if ($_GET['status'] == 'US') 
+      {
+        echo "Updated Successfully";
+      }
+      if ($_GET['status'] == 'FU') 
+      {
+        echo "Failed to Update";
+      }
+      if ($_GET['status'] == 'FRCI') 
+      {
+        echo "Failed to Remove Category Image";
+      }
+      if ($_GET['status'] == 'DS') 
+      {
+        echo "Deleted Successfully";
+      }
+      if ($_GET['status'] == 'FD') 
+      {
+        echo "Failed to Delete";
+      }
+    }
+    ?>
+     
+       <div class="card-header" style="font-size: 2rem;">Services
+       <a href="Vendor-addservices.php" class="button-add"> <button class="b" style="font-size: 1rem; border: none;border-radius: 5px; background-color:#f7b731;color: white; margin-left: 70%">Add Services</button></a>
+
+       
       
      </div>
-
-
-     <a href="Vendor-service-create.php"> <button class="b" style="font-size: 1rem; border: none;border-radius: 5px; background-color: #f7b731;color: white; margin-left: 74%;">Create Service</button></a>
-     <?php
-
-
-
-
-include('config.php');
-
-
-$query="SELECT * FROM services where vendor='{$_SESSION['username']}'";
-$result=mysqli_query($conn,$query);
-
-?>
+     <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  />
          <div class="table-responsive">
-                <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
+                 <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
                   <thead>
                    <tr>
                      <th>ID</th>
-                     <th>Name</th>
-                     <th>Category</th>
+                     <th>Image</th>        
+                     <th> Name</th>
                      <th>Company</th>
-                     <th>Price</th>
-                     <th>Operation</th>
-
+                     <th>Cost</th>
+                     <th>Availability</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                 
                    </tr>
+                    <?php include("vendor-view-services.php"); ?> 
                  </div>
-
-                 <?php
-while($rows=mysqli_fetch_assoc($result))
-{
-?>
-<tbody class="Services">
-
-  <tr>
-    <td><?php echo $rows['id'];?></td>
-    <td><?php echo $rows['name'];?></td>
-    <td><?php echo $rows['category'];?></td>
-    <td><?php echo $rows['company'];?></td>
-    <td><?php echo $rows['price'];?></td>
-<td>
-<?php
-echo '<p><a href="vendor-edit-services.php?id='.$rows['id'].'" class=status>"Edit"</a>
-        <a href="vendor-delete-services.php?id='.$rows['id'].'" class=status>"Delete"</a></p>';}?>
-</td>
-   
-</tr>
-</tbody>
-
+                   </thead>
 
                  
-</thead>
-                
-                
-            </td>
-          </tr>
+           
 </table>
 
-               
-     
-     <script>
-    var search = [
-            { serviceid: '89000', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
-            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
-            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'moral',price:'40000' },
-            { serviceid: '79880', name: 'Lightings', category : 'Decoration' ,Availability: '11:00am-05:00pm',Company:'envento',price:'40000' },
 
-            { serviceid: '47680', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
-
-            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'glow',price:'40000' },
-
-            { serviceid: '79880', name: 'Music', category : 'Sound System' ,Availability: '11:00am-12:00pm',Company:'envento',price:'58990' },
-
-            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-02:00pm',Company:'dream',price:'40000' },
-
-            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
-            { serviceid: '79880', name: 'Tables/Chairs', category : 'Catering' ,Availability: '11:00am-12:00pm',Company:'envento',price:'40000' },
-             
-            
-
-            
-    ];
-
-    var app = angular.module("app", []); app.controller("ListController",
-              ["$scope", function ($scope) { $scope.Searches = search; }]); 
-
-</script>
- 
-
+               </div>
+             </center>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
 </div>
-</center>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
 
       
 	  
@@ -356,24 +329,4 @@ echo '<p><a href="vendor-edit-services.php?id='.$rows['id'].'" class=status>"Edi
         font-size: 1.2em;
         color: rgba(255, 255, 255, 0.65);
 }
-
-.status{
-  background-color:white;
-  border-radius: 12px;
-  color:black;
-  padding:7px;
-  border-radius:2px;
-  margin-right:10px;
-  font-family:sans-serif;
-    margin-top: -50px;
-    min-height:30px; 
-    min-width: 120px;
-    text-decoration: none;
-
-}
-.status:hover {
-      background-color:black;
-      color:white;
-      transition: 0.7s;
-  }
 </style>

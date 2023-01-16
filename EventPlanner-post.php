@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
   <meta name="description" content=""/>
   <meta name="author" content=""/>
-  <title>Event planner-Create Event</title>
+  <title>Event planner-post</title>
   <!-- loader-->
   <link href="assets/css/pace.min.css" rel="stylesheet"/>
   <script src="assets/js/pace.min.js"></script>
@@ -42,7 +42,7 @@
    </div>
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header">Event Planner Panel</li>
-      <li>
+       <li>
         <a href="EventPlanner_Dashboard.php">
           <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
         </a>
@@ -50,7 +50,7 @@
       <li>
         <a href="EventPlanner_calender.php">
           <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <small class="badge float-right badge-light">New</small>
+          <!-- <small class="badge float-right badge-light">New</small> -->
         </a>
       </li>
 
@@ -73,14 +73,14 @@
       </li>
 
       <li>
-        <a href="EventPlanner-Staff.php">
-          <i class="zmdi zmdi-male-female"></i> <span>Staff</span>
+        <!-- <a href="EventPlanner-Staff.php"> -->
+          <!-- <i class="zmdi zmdi-male-female"></i> <span>Staff</span> -->
         </a>
       </li>
 
       <li>
-        <a href="EventPlanner-customers.php">
-          <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span>
+        <!-- <a href="EventPlanner-customers.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span> -->
         </a>
       </li>
 
@@ -101,14 +101,11 @@
         </a>
       </li>
       <li>
-        <a href="Attendance.php">
-          <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span>
+        <!-- <a href="Attendance.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span> -->
         </a>
       </li>
 
-
-
-      
 
 
     </ul>
@@ -127,8 +124,8 @@
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
+         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
       </form>
     </li>
   </ul>
@@ -136,41 +133,42 @@
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
+      <!-- <i class="fa fa-envelope-open-o"></i></a> -->
     </li>
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Rabia Javed</h6>
-            <p class="user-subtitle">Rabia@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Rabia Javed</h6> -->
+            <!-- <p class="user-subtitle">Rabia@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <!-- <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        <!-- <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> -->
       </ul>
     </li>
   </ul>
 </nav>
 </header>
 <!--End topbar header-->
+
 
 <div class="clearfix"></div>
 	
@@ -189,35 +187,32 @@
         <img src="assets/images/logo-icon.png" alt="logo icon">
       </div>
       <div class="card-title text-uppercase text-center py-3">Post Promotions</div>
-        <form>
-        <div class="form-group">
+      <form action="Eventplanner-post-action.php" method="POST" enctype='multipart/form-data'>
+        <!-- <div class="form-group">
         <label for="im">Image:</label><br>
-<input type="file" id="im" name="image" class="form-control input-shadow"; /><br>
+        <input type="file" id="" name="image" class="form-control input-shadow"; /><br> -->
+        <label for="exampleInputPassword" class="label">Caption</label>
          <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" placeholder="Enter Promotion Caption">
+          <input type="text" id="" name="caption" class="form-control input-shadow" placeholder="Enter Promotion Caption">
           
          </div>
         </div>
         <div class="form-group">
-         <label for="exampleInputPassword" class="sr-only">Availability</label>
+         <label for="exampleInputPassword" class="label">Availability</label>
          <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" placeholder="Enter Availability">
+          <input type="text" id="" name="availability" class="form-control input-shadow" placeholder="Enter Availability">
           
          </div>
         </div>
         
         <div class="form-group">
-         <label for="exampleInputPassword" class="sr-only">Discount</label>
+         <label for="exampleInputPassword" class="label">Discount</label>
          <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" placeholder="Enter Discount">
+          <input type="text" id="" name="discount" class="form-control input-shadow" placeholder="Enter Discount">
           
          </div>
         </div>
-        
-        
-         
-        
-       <button type="button" class="btn btn-light btn-block waves-effect waves-light">Post</button>
+        <input type="submit" name="submit" value="Post" class="btn btn-light btn-block" >
         
       
       
@@ -238,6 +233,13 @@
             </div>
           </div>
         </div>
+      
+	  
+	  <!--start overlay-->
+		  <div class="overlay toggle-menu"></div>
+		<!--end overlay-->
+
+    </div>
     <!-- End container-fluid-->
     
     </div><!--End content-wrapper-->
@@ -246,7 +248,6 @@
     <!--End Back To Top Button-->
 	
 	<!--Start footer-->
-	
 <footer class="footer" style="top: 100%; ">
       <div class="container">
         <div class="text-center">

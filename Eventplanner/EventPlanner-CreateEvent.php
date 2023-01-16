@@ -172,7 +172,6 @@
 </header>
 <!--End topbar header-->
 
-
 <div class="clearfix"></div>
 	
   <div class="content-wrapper">
@@ -189,47 +188,36 @@
       <div class="text-center">
         <img src="assets/images/logo-icon.png" alt="logo icon">
       </div>
-      <div class="card-title text-uppercase text-center py-3">Create Event</div>
-      <form action="Eventcreate-action.php" method="POST" enctype='multipart/form-data'>
-        <!-- <div class="form-group">
+      <div class="card-title text-uppercase text-center py-3">Post Promotions</div>
+        <form>
+        <div class="form-group">
         <label for="im">Image:</label><br>
-        <input type="file" id="" name="image" class="form-control input-shadow"; /><br> -->
-        <label for="exampleInputPassword" class="label">Event Name</label>
+<input type="file" id="im" name="image" class="form-control input-shadow"; /><br>
          <div class="position-relative has-icon-right">
-          <input type="text" id="" name="eventname" class="form-control input-shadow" placeholder="Enter Event Name">
+          <input type="text" id="" class="form-control input-shadow" placeholder="Enter Promotion Caption">
           
          </div>
         </div>
         <div class="form-group">
-         <label for="exampleInputPassword" class="label">Customer</label>
+         <label for="exampleInputPassword" class="sr-only">Availability</label>
          <div class="position-relative has-icon-right">
-          <input type="text" id="" name="customer" class="form-control input-shadow" placeholder="Enter Customer">
+          <input type="text" id="" class="form-control input-shadow" placeholder="Enter Availability">
           
          </div>
         </div>
         
         <div class="form-group">
-         <label for="exampleInputPassword" class="label">Date</label>
+         <label for="exampleInputPassword" class="sr-only">Discount</label>
          <div class="position-relative has-icon-right">
-          <input type="text" id="" name="date" class="form-control input-shadow" placeholder="Enter Date">
+          <input type="text" id="" class="form-control input-shadow" placeholder="Enter Discount">
           
          </div>
         </div>
-        <div class="form-group">
-         <label for="exampleInputPassword" class="label">Time</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" name="time" class="form-control input-shadow" placeholder="Enter time">
-          
-         </div>
-        </div>
-        <div class="form-group">
-         <label for="exampleInputPassword" class="label">Venue</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" name="venue" class="form-control input-shadow" placeholder="Enter venue">
-          
-         </div>
-        </div>
-        <input type="submit" name="submit" value="Create Event" class="btn btn-light btn-block" >
+        
+        
+         
+        
+       <button type="button" class="btn btn-light btn-block waves-effect waves-light">Post</button>
         
       
       
@@ -250,13 +238,6 @@
             </div>
           </div>
         </div>
-      
-	  
-	  <!--start overlay-->
-		  <div class="overlay toggle-menu"></div>
-		<!--end overlay-->
-
-    </div>
     <!-- End container-fluid-->
     
     </div><!--End content-wrapper-->
