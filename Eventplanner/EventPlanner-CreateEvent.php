@@ -190,59 +190,46 @@
         <img src="assets/images/logo-icon.png" alt="logo icon">
       </div>
       <div class="card-title text-uppercase text-center py-3">Create Event</div>
-        <form>
-        <div class="form-group">
-        <label for="exampleInputName" class="sr-only">Event Name</label>
+      <form action="Eventcreate-action.php" method="POST" enctype='multipart/form-data'>
+        <!-- <div class="form-group">
+        <label for="im">Image:</label><br>
+        <input type="file" id="" name="image" class="form-control input-shadow"; /><br> -->
+        <label for="exampleInputPassword" class="label">Event Name</label>
          <div class="position-relative has-icon-right">
-          <input type="text" id="exampleInputName" class="form-control input-shadow" placeholder="Enter Event Name">
-          <div class="form-control-position">
-            <i class="icon-user"></i>
-          </div>
-         </div>
-        </div>
-        <div class="form-group">
-        <label for="exampleInputEmailId" class="sr-only">Timings</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="exampleInputEmailId" class="form-control input-shadow" placeholder="Enter Event Timings">
-          <div class="form-control-position">
-            <i class="icon-envelope-open"></i>
-          </div>
-         </div>
-        </div>
-        <div class="form-group">
-         <label for="exampleInputPassword" class="sr-only">Cost</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="exampleInputPassword" class="form-control input-shadow" placeholder="Enter Price ">
-          <div class="form-control-position">
-            <i class="icon-lock"></i>
-          </div>
-         </div>
-        </div>
-        <div class="form-group">
-        <label for="exampleInputEmailId" class="sr-only">Availability</label>
-         <div class="position-relative has-icon-right">
-
-                
-                  
-          <input type="date" id="exampleInputEmailId" class="form-control input-shadow" placeholder="Enter salary">
+          <input type="text" id="" name="eventname" class="form-control input-shadow" placeholder="Enter Event Name">
           
          </div>
         </div>
-
- <div class="form-group">
-        <label for="exampleInputPassword">Services:</label><br>
-<select id="ct" name="ctgry" class="form-control input-shadow">
-  <option value="Decoration and Lighting">Decoration and Lighting</option>
-  <option value="Limo and Transportation">Limo and Transportation</option>
-  <option value="Caterers">Caterers</option>
-  <option value="Flowers">Flowers</option>
-  <option value="Gifts">Gifts</option>
-  <option value="Bakery: cakes and desserts">Bakery: cakes and desserts</option>
-</select>
-        
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Customer</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="customer" class="form-control input-shadow" placeholder="Enter Customer">
+          
          </div>
+        </div>
         
-       <button type="button" class="btn btn-light btn-block waves-effect waves-light"><b>CREATE</b></button>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Date</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="date" class="form-control input-shadow" placeholder="Enter Date">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Time</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="time" class="form-control input-shadow" placeholder="Enter time">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Venue</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="venue" class="form-control input-shadow" placeholder="Enter venue">
+          
+         </div>
+        </div>
+        <input type="submit" name="submit" value="Create Event" class="btn btn-light btn-block" >
         
       
       

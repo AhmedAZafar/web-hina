@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+?>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -74,14 +78,14 @@
       </li>
 
       <li>
-        <a href="EventPlanner-Staff.php">
-          <i class="zmdi zmdi-male-female"></i> <span>Staff</span>
+        <!-- <a href="EventPlanner-Staff.php"> -->
+          <!-- <i class="zmdi zmdi-male-female"></i> <span>Staff</span> -->
         </a>
       </li>
 
       <li>
-        <a href="EventPlanner-customers.php">
-          <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span>
+        <!-- <a href="EventPlanner-customers.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span> -->
         </a>
       </li>
 
@@ -102,8 +106,8 @@
         </a>
       </li>
       <li>
-        <a href="Attendance.php">
-          <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span>
+        <!-- <a href="Attendance.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span> -->
         </a>
       </li>
 
@@ -125,8 +129,8 @@
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
+         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
       </form>
     </li>
   </ul>
@@ -134,35 +138,35 @@
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
+      <!-- <i class="fa fa-envelope-open-o"></i></a> -->
     </li>
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Rabia Javed</h6>
-            <p class="user-subtitle">Rabia@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Rabia Javed</h6> -->
+            <!-- <p class="user-subtitle">Rabia@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <!-- <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        <!-- <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> -->
       </ul>
     </li>
   </ul>
@@ -189,29 +193,59 @@
      </div>
 
      <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  />
+     <?php
 
+
+
+
+include('config.php');
+
+
+$query="SELECT * FROM services";
+$result=mysqli_query($conn,$query);
+
+?>
          <div class="table-responsive">
                 <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
                   <thead>
                    <tr>
-                     <th>Service ID</th>
+                     <th>ID</th>
                      <th>Name</th>
                      <th>Category</th>
-                     <th>Availability</th>
                      <th>Company</th>
+                     <th>Vendor</th>
                      <th>Price</th>
+                   
                      <th>Actions</th>
                    </tr>
                  </div>
+
+                 <?php
+while($rows=mysqli_fetch_assoc($result))
+{
+?>
+<tbody class="Services">
+
+  <tr>
+    <td><?php echo $rows['id'];?></td>
+    <td><?php echo $rows['name'];?></td>
+    <td><?php echo $rows['category'];?></td>
+    <td><?php echo $rows['company'];?></td>
+    <td><?php echo $rows['vendor'];?></td>
+    <td><?php echo $rows['price'];?></td>
+    <td>
+      
+      <?php
+     echo '<p> <a href="EventPlanner-services-book.php?id='.$rows['id'].'" class=delete>"Book"</a></p>';}?>
+        
+</td>
+</tr>
+</tbody>
+
+
+                 
 </thead>
-                 <tr ng-repeat="search in Searches | filter: allKeywords">
-                <td>{{search.serviceid}}</td>
-                <td ng-bind="search.name"></td>
-                <td>{{search.category}}</td>
-                <td ng-bind="search.Availability"></td>
-                <td>{{search.Company}}</td>
-                <td ng-bind="search.price"></td>
-                <td><a href="admin-add-product.php" class="button-add" style="margin: 2px;">Book</a> <a href="EventPlanner-services-images.php" class="button-add">Images</a>
+                
                 
             </td>
           </tr>
@@ -356,4 +390,39 @@
         font-size: 1.2em;
         color: rgba(255, 255, 255, 0.65);
 }
+.delete{
+  background-color:white;
+  border-radius: 12px;
+  color:black;
+  padding:7px;
+  border-radius:2px;
+  margin-right:10px;
+  font-family:sans-serif;
+    margin-top: 13px;
+    min-height:30px; 
+    min-width: 120px;
+    border-radius: 8px;
+    text-decoration: none;
+
+}
+.delete:hover {
+      background-color:black;
+      color:white;
+      border-radius: 8px;
+      transition: 0.7s;
+  }
+  .accept{
+    background-color:white;
+  border-radius: 12px;
+  color:black;
+  padding:7px;
+  border-radius:2px;
+  margin-right:10px;
+  font-family:sans-serif;
+    margin-top: 13px;
+    min-height:30px; 
+    min-width: 120px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
 </style>

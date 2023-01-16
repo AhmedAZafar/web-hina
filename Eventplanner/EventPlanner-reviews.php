@@ -52,7 +52,7 @@
       <li>
         <a href="EventPlanner_calender.php">
           <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
-          <small class="badge float-right badge-light">New</small>
+          <!-- <small class="badge float-right badge-light">New</small> -->
         </a>
       </li>
 
@@ -75,14 +75,14 @@
       </li>
 
       <li>
-        <a href="EventPlanner-Staff.php">
-          <i class="zmdi zmdi-male-female"></i> <span>Staff</span>
+        <!-- <a href="EventPlanner-Staff.php"> -->
+          <!-- <i class="zmdi zmdi-male-female"></i> <span>Staff</span> -->
         </a>
       </li>
 
       <li>
-        <a href="EventPlanner-customers.php">
-          <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span>
+        <!-- <a href="EventPlanner-customers.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span> -->
         </a>
       </li>
 
@@ -103,8 +103,8 @@
         </a>
       </li>
       <li>
-        <a href="Attendance.php">
-          <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span>
+        <!-- <a href="Attendance.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span> -->
         </a>
       </li>
 
@@ -127,8 +127,8 @@
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
+         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
       </form>
     </li>
   </ul>
@@ -136,11 +136,11 @@
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-envelope-open-o"></i></a>
+      <!-- <i class="fa fa-envelope-open-o"></i></a> -->
     </li>
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
@@ -151,20 +151,20 @@
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Rabia Javed</h6>
-            <p class="user-subtitle">Rabia@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Rabia Javed</h6> -->
+            <!-- <p class="user-subtitle">Rabia@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <!-- <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        <!-- <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> -->
       </ul>
     </li>
   </ul>

@@ -1,4 +1,13 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if($_SESSION['username']==NULL)
+{
+  header("location:login.php");
+}
+else
+{
+?>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -168,6 +177,18 @@
 </nav>
 </header>
 <!--End topbar header-->
+<?php
+
+
+$id=$_GET['id'];
+
+include('config.php');
+
+
+$query="SELECT * FROM events_booked where id=$id";
+$result=mysqli_query($conn,$query);
+
+?>
 
 
 <div class="clearfix"></div>
@@ -186,87 +207,81 @@
       <div class="text-center">
         <img src="assets/images/logo-icon.png" alt="logo icon">
       </div>
-      <div class="card-title text-uppercase text-center py-3">Create Event</div>
-        <form>
+      <?php
+while($rows=mysqli_fetch_assoc($result))
+{
+?>
+<div>
+      <div class="card-title text-uppercase text-center py-3">Edit Event</div>
+      <form action="Eventedit-action.php" method="POST" enctype='multipart/form-data'>
+        <!-- <div class="form-group">
+        <label for="im">Image:</label><br>
+        <input type="file" id="" name="image" class="form-control input-shadow"; /><br> -->
         <div class="form-group">
-        <label for="exampleInputName" >Event Name</label>
+         <label for="exampleInputPassword" class="label">Id</label>
          <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" value="Reception">
-          <div class="form-control-position">
-            <i class="icon-user"></i>
-          </div>
-         </div>
-        </div>
-        <div class="form-group">
-        <label for="exampleInputEmailId" >Timings</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" value="01:00pm-06:00pm">
-          <div class="form-control-position">
-            <i class="icon-envelope-open"></i>
-          </div>
-         </div>
-        </div>
-        <div class="form-group">
-         <label for="exampleInputPassword" >Cost</label>
-         <div class="position-relative has-icon-right">
-          <input type="text" id="" class="form-control input-shadow" value="300000 ">
-          <div class="form-control-position">
-            <i class="icon-lock"></i>
-          </div>
-         </div>
-        </div>
-        
-
-<div class="form-group">
-         <label for="" >Date</label>
-         <div class="position-relative has-icon-right">     
-          <input type="date" id="" class="form-control input-shadow" placeholder="Enter salary">
+          <input type="text" id="" name="id" class="form-control input-shadow" value="<?php echo $rows['id'];?>" readonly>
           
          </div>
         </div>
-
-
-
-
-        
-
-
- <div class="form-group">
-        <label for="exampleInputPassword">Services:</label><br>
-<select id="ct" name="ctgry" class="form-control input-shadow">
-  <option value="Decoration and Lighting">Decoration and Lighting</option>
-  <option value="Limo and Transportation">Limo and Transportation</option>
-  <option value="Caterers">Caterers</option>
-  <option value="Flowers">Flowers</option>
-  <option value="Gifts">Gifts</option>
-  <option value="Bakery: cakes and desserts">Bakery: cakes and desserts</option>
-</select>
-        
+        <div class="form-group">
+        <label for="exampleInputPassword" class="label">Event Name</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="eventname" class="form-control input-shadow" value="<?php echo $rows['eventname'];?>">
+          
          </div>
-        
-       <button type="button" class="btn btn-light btn-block waves-effect waves-light"><b>CREATE</b></button>
+</div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Customer</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="customer" class="form-control input-shadow" value="<?php echo $rows['customer'];?>">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Date</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="date" class="form-control input-shadow" value="<?php echo $rows['date'];?>">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Time</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="time" class="form-control input-shadow" value="<?php echo $rows['time'];?>">
+          
+         </div>
+        </div>
+        <div class="form-group">
+         <label for="exampleInputPassword" class="label">Venue</label>
+         <div class="position-relative has-icon-right">
+          <input type="text" id="" name="venue" class="form-control input-shadow" value="<?php echo $rows['venue'];}?>">
+          
+         </div>
+        </div>
+        <input type="submit" name="submit" value="Edit Event" class="btn btn-light btn-block" >
         
       
       
        </form>
       
       </div>
-      
+</div>
        </div>
 
 
 
 
 
+</div>
+</div>
 
-
-   </div>
+  
   </div>
             </div>
           </div>
         </div>
-      
-	  
+</div>
 	  <!--start overlay-->
 		  <div class="overlay toggle-menu"></div>
 		<!--end overlay-->
@@ -365,3 +380,6 @@
         color: rgba(255, 255, 255, 0.65);
 }
 </style>
+<?php
+}
+?>

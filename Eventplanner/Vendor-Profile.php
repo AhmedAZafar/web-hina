@@ -1,5 +1,13 @@
 
-
+<?php
+session_start();
+if($_SESSION['username']==NULL)
+{
+  header("location:login.php");
+}
+else
+{
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -76,10 +84,7 @@
            <i class="zmdi zmdi-image"></i> <span>Gallary</span>
         </a>
       </li>
-
      
-
-
     </ul>
    
    </div>
@@ -96,8 +101,8 @@
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+        <!-- <input type="text" class="form-control" placeholder="Enter keywords">
+         <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
       </form>
     </li>
   </ul>
@@ -105,32 +110,32 @@
   <ul class="navbar-nav align-items-center right-nav-link">
     
     <li class="nav-item dropdown-lg">
-      <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"> -->
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Hina Noor</h6>
-            <p class="user-subtitle">Hina@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Hina Noor</h6> -->
+            <!-- <p class="user-subtitle">Hina@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
     
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
        
         <li class="dropdown-divider"></li>
-        <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a>
+        <!-- <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a> -->
       </ul>
     </li>
   </ul>
@@ -147,25 +152,32 @@
         <div class="col-lg-4">
            <div class="card profile-card-2">
             <div class="card-img-block">
-                <img class="img-fluid" src="assets/images/bg-2.jpg" alt="Card image cap">
+                <img class="img-fluid" src="assets/images/g-9.jpg" alt="Card image cap">
             </div>
+            <?php
+  include('config.php');
+  $query="SELECT * FROM users WHERE username ='{$_SESSION['username']}'";
+  $result=mysqli_query($conn,$query);
+  while($rows=mysqli_fetch_assoc($result))
+  {
+
+?> 
+
              <div class="card-body pt-5">
-                <img src="assets/images/pic-4.png" alt="profile-image" class="profile">
-                <h5 class="card-title">Hina Noor</h5>
-                <p class="card-text">I have been selling services since 4 years and i am experienced vendor.</p>
-                <div class="icon-block">
+                <!-- <img src="assets/images/pic-4.png" alt="profile-image" class="profile">  -->
+                <h5 class="card-title"><?php echo $rows['fullname'];?></h5>
+                <p class="card-text"><?php echo $rows['companyname'];?></p>
+                <p class="card-text"><?php echo $rows['address'];}?></p>
+               <div class="icon-block">
                   <a href="javascript:void();"><i class="fa fa-facebook bg-facebook text-white"></i></a>
                   <a href="javascript:void();"> <i class="fa fa-twitter bg-twitter text-white"></i></a>
                   <a href="javascript:void();"> <i class="fa fa-google-plus bg-google-plus text-white"></i></a>
                 </div>
-            </div>
-           
   
-            
+            </div>   
         </div>
-
         </div>
-
+  </div>
         <div class="col-lg-8">
            <div class="card">
             <div class="card-body">
@@ -195,89 +207,110 @@
 
                         </div>  
                       </div>  <!--/row-->
-                </div>
-
-             
+  </div>
 
 
 
 
 
+                <?php
+  include('config.php');
+  $query="SELECT * FROM users WHERE username ='{$_SESSION['username']}'";
+  $result=mysqli_query($conn,$query);
+  while($rows=mysqli_fetch_assoc($result))
+  {
+
+?>
 
                 <div class="tab-pane" id="edit">
 
-
-                
-
-
-                    <form action="vendor-profile-action.php" method="POST" >
-
+                <form action="Eventplanner_profile_action.php" method="POST" onsubmit="return validation()">
                        
 
-
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Full name</label>
-                            <div class="col-lg-9">
- <input class="form-control" type="text" name="fullname" placeholder="Enter your fullname"
-                               required >
-                            </div>
-                        </div>
-
-
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="username" placeholder="Enter your username"  required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                            <div class="col-lg-9">
-         <input class="form-control" type="text" name="bussinessemail" placeholder="Enter your email"  required >
-                            </div>
-                        </div>
-                        
-                       
-
-                      
- 
-           
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Company Name</label>
-                            <div class="col-lg-9">
-                    <input class="form-control" type="text" name="companyname" placeholder="Enter your company name"  required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Address</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text"  placeholder="Street"  required>
-                            </div>
-                        </div>
-                       
-                       
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label">Phone Number</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" name="phoneno" placeholder="Enter your phone number"   required>
-                            </div>
-                        </div>
-
-                          
-
-
-                        
-                        <div class="form-group row">
-                            <label class="col-lg-3 col-form-label form-control-label"></label>
-                            <div class="col-lg-9">
-     <input type="submit" class="btn btn-secondary" name="Cancel" value="cancel">
-                                <input type="submit" class="btn btn-primary" name="update">
-                            </div>
-                        </div>
-
-
-                     
-                    </form>
+                <div class="form-group">
+			  <label class="col-lg-3 col-form-label form-control-label">Full Name</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text"  name="fullname" class="form-control input-shadow" placeholder="Enter Your Name" value="<?php echo $rows['fullname'];?>">
+				  <div class="form-control-position">
+					  <i class="icon-pencil"></i>
+				  </div>
+			   </div>
+			  </div>
+        <div class="form-group">
+			  <label class="col-lg-3 col-form-label form-control-label">User Name</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="username" name="username" class="form-control input-shadow" value="<?php echo $rows['username'];?>" >
+				   <span id="usernamee" class="text-warning font-weight-bold"> </span>
+				  <div class="form-control-position">
+					  <i class="icon-user"></i>
+				  </div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			  <label class="col-lg-3 col-form-label form-control-label"> Bussiness Email</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="be" name="bussinessemail" class="form-control input-shadow" value="<?php echo $rows['bussinessemail'];?>" >
+				   <span id="bussinessemaill" class="text-warning font-weight-bold"> </span>
+				  <div class="form-control-position">
+					  <i class="icon-envelope-open"></i>
+				  </div>
+			   </div>
+			  </div>
+			   <div class="form-group">
+			  <label class="col-lg-3 col-form-label form-control-label">Phone Number</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="phoneno" name="phoneno" class="form-control input-shadow" value="<?php echo $rows['phoneno'];?>" >
+				   <span id="phonenoo" class="text-warning font-weight-bold"> </span>
+				  <div class="form-control-position">
+					  <i class="icon-phone"></i>
+				  </div>
+			   </div>
+			  </div>
+			   <div class="form-group">
+			  <label class="col-lg-3 col-form-label form-control-label"> Company Name</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="companyname" name="companyname" class="form-control input-shadow" value="<?php echo $rows['companyname'];?>" >
+				   <span id="companynamee" class="text-warning font-weight-bold"> </span>
+				  <div class="form-control-position">
+					  <i class="icon-globe"></i>
+				  </div>
+			   </div>
+			  </div>
+			   <div class="form-group">
+			  <label class="col-lg-3 col-form-label form-control-label"> Address</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="address" name="address" class="form-control input-shadow" value="<?php echo $rows['address'];}?>" >
+				   <span id="addresss" class="text-warning font-weight-bold"> </span>
+				  <div class="form-control-position">
+					  <i class=" icon-home"></i>
+				  </div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			   <label class="col-lg-3 col-form-label form-control-label">Password</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="pass" name="password" class="form-control input-shadow" placeholder="Enter Password" >
+				   <span id="passwordd" class="text-warning font-weight-bold"> </span>
+				  <div class="form-control-position">
+					  <i class="icon-lock"></i>
+				  </div>
+			   </div>
+			  </div>
+			   <div class="form-group">
+			  <label class="col-lg-3 col-form-label form-control-label"> Confirm Password</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="cp" name="confirmedpassword" class="form-control input-shadow" placeholder="Enter Your confirmed password">
+				   <span id="confirmedpasswordd" class="text-warning font-weight-bold"> </span>
+				  <div class="form-control-position">
+					  <i class="icon-lock"></i>
+				  </div>
+			   </div>
+			  </div>
+        <input type="submit" name="submit" value="Save Changes" class="btn-btn-primary">
+			 
+			
+			
+			 </form>
                 </div>
             </div>
         </div>
@@ -381,16 +414,11 @@
         font-size: 1.2em;
         color: rgba(255, 255, 255, 0.65);
 
-}
-
-
-
-
-
-
-   
+} 
 </style>
-
+<?php
+}
+?>
 
 
 

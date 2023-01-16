@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+session_start();
+
+?>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -74,14 +78,14 @@
       </li>
 
       <li>
-        <a href="EventPlanner-Staff.php">
-          <i class="zmdi zmdi-male-female"></i> <span>Staff</span>
+        <!-- <a href="EventPlanner-Staff.php"> -->
+          <!-- <i class="zmdi zmdi-male-female"></i> <span>Staff</span> -->
         </a>
       </li>
 
       <li>
-        <a href="EventPlanner-customers.php">
-          <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span>
+        <!-- <a href="EventPlanner-customers.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-alt"></i> <span>Clients</span> -->
         </a>
       </li>
 
@@ -102,8 +106,8 @@
         </a>
       </li>
       <li>
-        <a href="Attendance.php">
-          <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span>
+        <!-- <a href="Attendance.php"> -->
+          <!-- <i class="zmdi zmdi-accounts-add"></i> <span>Attendance</span> -->
         </a>
       </li>
 
@@ -124,45 +128,45 @@
      </a>
     </li>
     <li class="nav-item">
-      <form class="search-bar">
+      <!-- <form class="search-bar">
         <input type="text" class="form-control" placeholder="Enter keywords">
          <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-      </form>
+      </form> -->
     </li>
   </ul>
      
   <ul class="navbar-nav align-items-center right-nav-link">
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void()">
-      <i class="fa fa-envelope-open-o"></i></a>
+      <!-- <i class="fa fa-envelope-open-o"></i></a> -->
     </li>
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/profile.1.jpg" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Rabia Javed</h6>
-            <p class="user-subtitle">Rabia@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Rabia Javed</h6> -->
+            <!-- <p class="user-subtitle">Rabia@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+        <!-- <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+        <!-- <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li> -->
       </ul>
     </li>
   </ul>
@@ -192,14 +196,27 @@
       
      </div>
         
-       <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  />
+       
 
 </center>
 
+<?php
+
+
+
+
+include('config.php');
+
+
+$query="SELECT * FROM events WHERE eventplanner ='{$_SESSION['username']}' AND statu=0";
+$result=mysqli_query($conn,$query);
+
+?>
         <div class="table-responsive" style="">
                  <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
                   <thead>
                    <tr>
+                   <th>ID</th>
                      <th>Customer Name</th>
                      <th>Event Name</th>
                      <th>Event Date</th>
@@ -211,7 +228,7 @@
                   
                   
         
-            <tr ng-repeat="search in Searches | filter: allKeywords">
+            <!-- <tr ng-repeat="search in Searches | filter: allKeywords">
                 <td>{{search.customername}}</td>
                 <td ng-bind="search.eventname"></td>
                 <td>{{search.eventdate}}</td>
@@ -219,14 +236,38 @@
                 <td>{{search.eventtype}}</td>
                 <td><a href="admin-add-product.php" class="button-add" style="margin: 2px;">Accept</a> <a href="file:///F:/Eventplanner/EventPlanner-services-images.html" class="button-add">Reject</a></td>
                 
-            </tr>
+            </tr> -->
+            <?php
+while($rows=mysqli_fetch_assoc($result))
+{
+?>
+<tbody class="Customerdata">
+
+  <tr>
+    <td><?php echo $rows['id'];?></td>
+    <td><?php echo $rows['customer'];?></td>
+    <td><?php echo $rows['eventname'];?></td>
+    <td><?php echo $rows['eventdate'];?></td>
+    <td><?php echo $rows['eventtime'];?></td>
+    <td><?php echo $rows['category'];?></td>
+
+
+    <td>
+      <?php
+     
+        echo '<p><a href="booking_action.php?id='.$rows['id'].'&statu=1" class=delete>"Accept"</a>
+        <a href="booking_action.php?id='.$rows['id'].'&statu=2" class=delete>"Reject"</a></p>';}?>
+</td>
+</tr>
+</tbody>
+
              </thead>
 </table>
 
                </div>
-         
-        
 
+        
+       
        
 
 
@@ -234,7 +275,7 @@
 
 
 
-<script>
+<!-- <script>
     var search = [
             { customername: 'Rabiaa', eventname: 'Dolki', eventdate : '2/7/2021' ,eventtime: '05:00am-12:00pm',eventtype:'Wedding' },
             { customername: 'Hina', eventname: 'Barat', eventdate : '6/3/2027' ,eventtime: '06:00am-12:00pm',eventtype:'Wedding' },
@@ -251,7 +292,7 @@
     var app = angular.module("app", []); app.controller("ListController",
               ["$scope", function ($scope) { $scope.Searches = search; }]); 
 
-</script>
+</script> -->
 </div>
 
 
@@ -275,40 +316,75 @@
       
      </div>
         
-       <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  />
+       <!-- <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  /> -->
 
 </center>
 
+     
+<?php
+
+
+
+
+include('config.php');
+
+
+$query="SELECT * FROM events WHERE eventplanner ='{$_SESSION['username']}' AND statu=1";
+$result=mysqli_query($conn,$query);
+
+?>
         <div class="table-responsive" style="">
                  <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
                   <thead>
                    <tr>
+                   <th>ID</th>
                      <th>Customer Name</th>
                      <th>Event Name</th>
                      <th>Event Date</th>
                      <th>Event Time</th>
                      <th>Event Type</th>
                    
-                     <th>Actions</th>
+                     <th>Status</th>
                    </tr>
                   
-                   
-
-              
+                  
         
-            <tr ng-repeat="search in Searches | filter: allKeywords">
+            <!-- <tr ng-repeat="search in Searches | filter: allKeywords">
                 <td>{{search.customername}}</td>
                 <td ng-bind="search.eventname"></td>
                 <td>{{search.eventdate}}</td>
                 <td ng-bind="search.eventtime"></td>
                 <td>{{search.eventtype}}</td>
-                <td><a href="admin-add-product.php" class="button-add" style="margin: 2px;">Accepted</a> </td>
+                <td><a href="admin-add-product.php" class="button-add" style="margin: 2px;">Accept</a> <a href="file:///F:/Eventplanner/EventPlanner-services-images.html" class="button-add">Reject</a></td>
                 
-            </tr>
-       
-</thead>
+            </tr> -->
+            <?php
+while($rows=mysqli_fetch_assoc($result))
+{
+?>
+<tbody class="Customerdata">
+
+  <tr>
+    <td><?php echo $rows['id'];?></td>
+    <td><?php echo $rows['customer'];?></td>
+    <td><?php echo $rows['eventname'];?></td>
+    <td><?php echo $rows['eventdate'];?></td>
+    <td><?php echo $rows['eventtime'];?></td>
+    <td><?php echo $rows['category'];?></td>
+
+
+    <td>
+      <?php
+     
+        echo '<p><button class=accept>"Accepted"</button></p>';}?></a>
+</td>
+</tr>
+</tbody>
+
+             </thead>
 </table>
-</div>
+
+               </div>
 
 
 
@@ -351,60 +427,78 @@
       
      </div>
         
-       <input type="text" class="form-control input-shadow" ng-model="allKeywords" placeholder="Search...."  />
-
+       
 </center>
 
+       
+<?php
+
+
+
+
+include('config.php');
+
+
+$query="SELECT * FROM events WHERE eventplanner ='{$_SESSION['username']}' AND statu=2";
+$result=mysqli_query($conn,$query);
+
+?>
         <div class="table-responsive" style="">
                  <table class="table align-items-center table-flush " style="color: white; text-decoration: none; table-layout: none; ">
                   <thead>
                    <tr>
+                   <th>ID</th>
                      <th>Customer Name</th>
                      <th>Event Name</th>
                      <th>Event Date</th>
                      <th>Event Time</th>
                      <th>Event Type</th>
                    
-                     <th>Actions</th>
+                     <th>Status</th>
                    </tr>
                   
-                   
-
-            
+                  
         
-            <tr ng-repeat="search in Searches | filter: allKeywords">
+            <!-- <tr ng-repeat="search in Searches | filter: allKeywords">
                 <td>{{search.customername}}</td>
                 <td ng-bind="search.eventname"></td>
                 <td>{{search.eventdate}}</td>
                 <td ng-bind="search.eventtime"></td>
                 <td>{{search.eventtype}}</td>
-                <td><a href="admin-add-product.php" class="button-add" style="margin: 2px;">Rejected</a> </td>
+                <td><a href="admin-add-product.php" class="button-add" style="margin: 2px;">Accept</a> <a href="file:///F:/Eventplanner/EventPlanner-services-images.html" class="button-add">Reject</a></td>
                 
-            </tr>
-       </thead>
-       </table>
-    </div>
+            </tr> -->
+            <?php
+while($rows=mysqli_fetch_assoc($result))
+{
+?>
+<tbody class="Customerdata">
+
+  <tr>
+    <td><?php echo $rows['id'];?></td>
+    <td><?php echo $rows['customer'];?></td>
+    <td><?php echo $rows['eventname'];?></td>
+    <td><?php echo $rows['eventdate'];?></td>
+    <td><?php echo $rows['eventtime'];?></td>
+    <td><?php echo $rows['category'];?></td>
 
 
+    <td>
+      <?php
+     
+        echo '<p><button class=accept>"Rejected"</button></p>';}?></a>
+</td>
+</tr>
+</tbody>
 
+             </thead>
+</table>
 
+               </div>
 
 
 <script>
-    var search = [
-            { customername: 'Raaa', eventname: 'Dolki', eventdate : '2/3/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Rania', eventname: 'Dolki', eventdate : '2/3/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Rabia', eventname: 'Dolki', eventdate : '2/7/2021' ,eventtime: '05:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Hina', eventname: 'Barat', eventdate : '6/3/2027' ,eventtime: '06:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Sundas', eventname: 'Reception', eventdate : '2/3/2022' ,eventtime: '07:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Hadia', eventname: 'Birthday Party', eventdate : '9/3/2022' ,eventtime: '11:00am-09:00pm',eventtype:'Birthday' },
-            { customername: 'Fiza', eventname: 'Bridal Shower', eventdate : '2/10/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Ghaza', eventname: 'Mayoon', eventdate : '2/3/2027' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Khalda', eventname: 'Mehndi', eventdate : '7/4/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Wedding' },
-            { customername: 'Javed', eventname: 'Seminar', eventdate : '9/3/2022' ,eventtime: '11:00am-12:00pm',eventtype:'Bussiness' },
-            
-            
-    ];
+  
 
     var app = angular.module("app", []); app.controller("ListController",
               ["$scope", function ($scope) { $scope.Searches = search; }]); 
@@ -565,4 +659,39 @@ for (i = 0; i < coll.length; i++) {
         font-size: 1.2em;
         color: rgba(255, 255, 255, 0.65);
 }
+.delete{
+  background-color:white;
+  border-radius: 12px;
+  color:black;
+  padding:7px;
+  border-radius:2px;
+  margin-right:10px;
+  font-family:sans-serif;
+    margin-top: 13px;
+    min-height:30px; 
+    min-width: 120px;
+    border-radius: 8px;
+    text-decoration: none;
+
+}
+.delete:hover {
+      background-color:black;
+      color:white;
+      border-radius: 8px;
+      transition: 0.7s;
+  }
+  .accept{
+    background-color:white;
+  border-radius: 12px;
+  color:black;
+  padding:7px;
+  border-radius:2px;
+  margin-right:10px;
+  font-family:sans-serif;
+    margin-top: 13px;
+    min-height:30px; 
+    min-width: 120px;
+    border-radius: 8px;
+    text-decoration: none;
+  }
 </style>

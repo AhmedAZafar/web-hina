@@ -90,8 +90,8 @@ include("includes/config.php");
     </li>
     <li class="nav-item">
       <form class="search-bar">
-        <input type="text" class="form-control" placeholder="Enter keywords">
-         <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+        <!-- <input type="text" class="form-control" placeholder="Enter keywords"> -->
+         <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
       </form>
     </li>
   </ul>
@@ -100,30 +100,30 @@ include("includes/config.php");
     
     <li class="nav-item dropdown-lg">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
-      <i class="fa fa-bell-o"></i></a>
+      <!-- <i class="fa fa-bell-o"></i></a> -->
     </li>
     
     <li class="nav-item">
       <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
-        <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span>
+        <!-- <span class="user-profile"><img src="assets/images/pic-4.png" class="img-circle" alt="user avatar"></span> -->
       </a>
       <ul class="dropdown-menu dropdown-menu-right">
        <li class="dropdown-item user-details">
         <a href="javaScript:void();">
            <div class="media">
-             <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+             <!-- <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div> -->
             <div class="media-body">
-            <h6 class="mt-2 user-title">Hina Noor</h6>
-            <p class="user-subtitle">Hina@gmail.com</p>
+            <!-- <h6 class="mt-2 user-title">Hina Noor</h6> -->
+            <!-- <p class="user-subtitle">Hina@gmail.com</p> -->
             </div>
            </div>
           </a>
         </li>
        
         <li class="dropdown-divider"></li>
-        <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+        <!-- <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li> -->
         <li class="dropdown-divider"></li>
-       <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a>
+       <!-- <a href="logoff.php">    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li></a> -->
       </ul>
     </li>
   </ul>
@@ -141,7 +141,7 @@ include("includes/config.php");
 
    
        <div class="card-header" style="font-size: 2rem;">Gallary
-      <form action="upload.php"
+      <!-- <form action="upload.php"
            method="post"
            enctype="multipart/form-data"  class="form-control input-shadow" style="width: 50%; ">
 
@@ -151,7 +151,7 @@ include("includes/config.php");
            <input type="submit" 
                   name="submit"
                   value="Upload">
-              </form>
+              </form> -->
           </div>
           
               <br>
@@ -161,18 +161,9 @@ include("includes/config.php");
 <br>
 
 
- <?php 
-          $sql = "SELECT * FROM images ORDER BY id DESC";
-          $res = mysqli_query($conn,  $sql);
 
-          if (mysqli_num_rows($res) > 0) {
-            while ($images = mysqli_fetch_assoc($res)) {  ?>
-             
-             <div class="alb">
-                <img src="uploads/<?=$images['image_url']?>">
-             </div>
                 
-    <?php } }?>
+  
 
     <style>
         body {
